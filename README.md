@@ -1,3 +1,3 @@
-# Seasons : A verticale slice by wintertainment
+# Seasons : A verticale slice by Wintertainment
 
 # Commandes
