@@ -1,4 +1,3 @@
-# verticale-slice-wintertainment
-verticale-slice-wintertainment created by GitHub Classroom
+# Seasons : A verticale slice by wintertainment
 
 # Commandes
