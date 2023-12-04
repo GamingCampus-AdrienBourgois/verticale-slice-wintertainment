@@ -10,7 +10,7 @@ void WindowModule::Init()
 {
 	Module::Init();
 
-	window = new sf::RenderWindow(sf::VideoMode(600, 600), "SFML Engine");
+	window = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML Engine");
 }
 
 void WindowModule::Start()
