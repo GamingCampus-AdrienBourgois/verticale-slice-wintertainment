@@ -1,3 +1,2 @@
-﻿  MenuInput.cpp
-C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\SFMLEngine\include\Components\MenuInput.cpp(20,34): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
+﻿  RendererComponent.cpp
   SFMLEngine.vcxproj -> C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\x64\Debug\SFMLEngine.lib

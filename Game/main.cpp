@@ -2,6 +2,7 @@
 #include "SceneModule.h"
 #include "Scenes/DefaultScene.h"
 #include "Scenes/Menu.h"
+#include "Scenes/Autumn1.h"
 
 int main()
 {
@@ -10,7 +11,7 @@ int main()
 	engine->Init();
 
 	SceneModule* scene_module = engine->GetModuleManager()->GetModule<SceneModule>();
-	scene_module->SetScene<MenuScene>();
+	scene_module->SetScene<Autumn1>();
 
 	engine->Run();
 
