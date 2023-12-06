@@ -7,9 +7,11 @@ RendererComponent::RendererComponent()
 RendererComponent::~RendererComponent()
 {
 	delete Texture;
+	Texture = nullptr;
 	for (int i = 0; i < Sprites.size(); i++)
 	{
 		delete Sprites[i];
+		Sprites[i] = nullptr;
 	}
 }
 
@@ -18,7 +20,7 @@ void RendererComponent::Render(sf::RenderWindow* _window)
 	Component::Render(_window);
 
 	const auto position = GetOwner()->GetPosition();
-	Sprite->setOrigin(0.0f, 0.0f);
+	Sprite->setOrigin(12.0f, 12.0f);
 	Sprite->setPosition(position.x, position.y);
 	Sprite->setScale(sf::Vector2f(2.0f, 2.0f));
 	_window->draw(*Sprite);

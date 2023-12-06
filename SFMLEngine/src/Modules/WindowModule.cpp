@@ -3,6 +3,7 @@
 #include <imgui-SFML.h>
 #include <iostream>
 #include <SFML/Window/Event.hpp>
+#include "Maths/Vector2.h"
 
 #include "Engine.h"
 
@@ -11,6 +12,7 @@ void WindowModule::Init()
 	Module::Init();
 
 	window = new sf::RenderWindow(sf::VideoMode(800, 600), "SFML Engine");
+	view = new sf::View;
 }
 
 void WindowModule::Start()

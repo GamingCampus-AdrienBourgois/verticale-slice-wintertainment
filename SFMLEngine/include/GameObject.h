@@ -1,11 +1,15 @@
 #pragma once
+
 #include <string>
 #include <vector>
 
 #include "Component.h"
 #include "Maths/Vector2.h"
+#include "Scene.h"
 
 class Component;
+
+class Scene;
 
 class GameObject
 {
@@ -17,8 +21,11 @@ public:
 	Maths::Vector2<float> GetPosition() const { return position; }
 	float GetRotation() const { return rotation; }
 	Maths::Vector2<float> GetScale() const { return scale; }
+	Scene* GetSceneOwner() const { return owner; }
+
 
 	void SetName(const std::string& _name) { name = _name; }
+	void SetSceneOwner(Scene* _owner) { owner = _owner; }
 	void SetPosition(const Maths::Vector2<float>& _position) { position = _position; }
 	void SetRotation(const float _rotation) { rotation = _rotation; }
 	void SetScale(const Maths::Vector2<float>& _scale) { scale = _scale; }
@@ -37,6 +44,7 @@ public:
 
 private:
 	std::string name = "GameObject";
+	Scene* owner = nullptr;
 
 	Maths::Vector2<float> position = Maths::Vector2f::Zero;
 	float rotation = 0.0f;

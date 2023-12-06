@@ -21,5 +21,10 @@ private:
 	sf::Texture* Texture = nullptr;
 	sf::Sprite* Sprite = nullptr;
 
+	bool LookingLeft = false;
+	bool LookingRight = false;
+	bool LookingUp = false;
+	bool LookingDown = true;
+
 	std::vector<sf::Sprite*> Sprites;
 };

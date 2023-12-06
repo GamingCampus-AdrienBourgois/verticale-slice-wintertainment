@@ -38,18 +38,18 @@ namespace Maths
 		Vector2& operator=(Vector2&& _other) noexcept = default;
 
 		//Addition
-		Vector2 operator+(const Vector2& _rhs);
+		Vector2 operator+(const Vector2& _rhs) const;
 		//Subtraction
-		Vector2 operator-(const Vector2& _rhs);
+		Vector2 operator-(const Vector2& _rhs) const;
 		//Multiplication
-		Vector2 operator*(const Vector2& _rhs);
+		Vector2 operator*(const Vector2& _rhs) const;
 		//Division
-		Vector2 operator/(const Vector2& _rhs);
+		Vector2 operator/(const Vector2& _rhs) const;
 
 		//Multiplication
-		Vector2 operator*(const T& _rhs);
+		Vector2 operator*(const T& _rhs) const;
 		//Division
-		Vector2 operator/(const T& _rhs);
+		Vector2 operator/(const T& _rhs) const;
 
 		//Addition
 		Vector2 operator+=(const Vector2& _rhs);

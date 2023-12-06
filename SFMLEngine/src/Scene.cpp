@@ -32,6 +32,7 @@ GameObject* Scene::CreateGameObject(const std::string& _name)
 {
 	GameObject* const game_object = new GameObject();
 	game_object->SetName(_name);
+	game_object->SetSceneOwner(this);
 	gameObjects.push_back(game_object);
 	return game_object;
 }

@@ -15,37 +15,37 @@ template<typename T>
 Vector2<T>::Vector2(T _x, T _y) : x(_x), y(_y) {}
 
 template<typename T>
-Vector2<T> Vector2<T>::operator+(const Vector2& _rhs)
+Vector2<T> Vector2<T>::operator+(const Vector2& _rhs) const
 {
 	return Vector2(x + _rhs.x, y + _rhs.y);
 }
 
 template<typename T>
-Vector2<T> Vector2<T>::operator-(const Vector2& _rhs)
+Vector2<T> Vector2<T>::operator-(const Vector2& _rhs) const
 {
 	return Vector2(x - _rhs.x, y - _rhs.y);
 }
 
 template<typename T>
-Vector2<T> Vector2<T>::operator*(const Vector2& _rhs)
+Vector2<T> Vector2<T>::operator*(const Vector2& _rhs) const
 {
 	return Vector2(x * _rhs.x, y * _rhs.y);
 }
 
 template<typename T>
-Vector2<T> Vector2<T>::operator/(const Vector2& _rhs)
+Vector2<T> Vector2<T>::operator/(const Vector2& _rhs) const
 {
 	return Vector2(x / _rhs.x, y / _rhs.y);
 }
 
 template<typename T>
-Vector2<T> Vector2<T>::operator*(const T& _rhs)
+Vector2<T> Vector2<T>::operator*(const T& _rhs) const
 {
 	return Vector2(x * _rhs, y * _rhs);
 }
 
 template<typename T>
-Vector2<T> Vector2<T>::operator/(const T& _rhs)
+Vector2<T> Vector2<T>::operator/(const T& _rhs) const
 {
 	return Vector2(x / _rhs, y / _rhs);
 }
