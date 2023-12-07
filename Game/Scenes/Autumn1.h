@@ -6,6 +6,7 @@
 #include "SquareCollider.h"
 #include "AuraRenderer.h"
 #include "CircleShapeRenderer.h"
+#include "ViewComponent.h"
 
 class Autumn1 final : public Scene
 {
@@ -39,6 +40,8 @@ public :
 		AuraRenderer* auraRenderer = player->CreateComponent<AuraRenderer>();
 
 		PlayerInput* playerInput = player->CreateComponent<PlayerInput>();
+
+		ViewComponent* viewComponent = player->CreateComponent<ViewComponent>();
 
 		return player;
 	}

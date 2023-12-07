@@ -24,6 +24,7 @@
     <ClCompile Include="include\Components\MenuInput.cpp" />
     <ClCompile Include="include\Components\PlayerInput.cpp" />
     <ClCompile Include="include\Components\RendererComponent.cpp" />
+    <ClCompile Include="include\Components\ViewComponent.cpp" />
     <ClCompile Include="src\Components\TextComponent.cpp" />
     <ClCompile Include="src\Modules\ImGuiModule.cpp" />
     <ClCompile Include="ImGui\imgui-SFML.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="include\Components\PlayerInput.h" />
     <ClInclude Include="include\Components\RendererComponent.h" />
     <ClInclude Include="include\Components\TextComponent.h" />
+    <ClInclude Include="include\Components\ViewComponent.h" />
     <ClInclude Include="include\Modules\ImGuiModule.h" />
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Components\ARendererComponent.h" />
