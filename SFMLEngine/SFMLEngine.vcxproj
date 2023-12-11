@@ -27,6 +27,7 @@
     <ClCompile Include="include\Components\RendererComponent.cpp" />
     <ClCompile Include="include\Components\SeasonComp.cpp" />
     <ClCompile Include="include\Components\ViewComponent.cpp" />
+    <ClCompile Include="include\TextDisplayer.cpp" />
     <ClCompile Include="src\Components\TextComponent.cpp" />
     <ClCompile Include="src\Modules\ImGuiModule.cpp" />
     <ClCompile Include="ImGui\imgui-SFML.cpp" />
@@ -70,6 +71,7 @@
     <ClInclude Include="include\Modules\SceneModule.h" />
     <ClInclude Include="include\Modules\WindowModule.h" />
     <ClInclude Include="include\Modules\InputModule.h" />
+    <ClInclude Include="include\TextDisplayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Scene.cpp" />

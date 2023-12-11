@@ -9,32 +9,33 @@ C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Sc
           [
               T=float
           ]
-C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(31,50): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\SFMLEngine\include\TextDisplayer.h(36,22): warning C4305: 'initialisation' : troncation de 'double' à 'float'
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(51,50): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(31,39): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(51,39): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(60,50): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(80,50): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(60,39): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(80,39): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(75,47): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(95,47): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(75,36): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(95,36): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float

@@ -9,6 +9,8 @@ public:
 	~ViewComponent();
 
 	void Render(sf::RenderWindow* _window) override;
+	Maths::Vector2<float> GetCamera() { return Camera; }
+
 
 private:
 	sf::View view;

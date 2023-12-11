@@ -17,4 +17,5 @@ public:
 
 private:
 	float Speed = 200.0f;
+	bool canMove = true;
 };
