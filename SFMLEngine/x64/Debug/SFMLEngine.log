@@ -1,6 +1,0 @@
-﻿  PlayerInput.cpp
-C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\SFMLEngine\include\TextDisplayer.h(36,22): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-  TextDisplayer.cpp
-C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\SFMLEngine\include\TextDisplayer.h(36,22): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-  Génération de code en cours...
-  SFMLEngine.vcxproj -> C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\x64\Debug\SFMLEngine.lib
