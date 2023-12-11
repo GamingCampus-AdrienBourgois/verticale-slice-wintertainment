@@ -25,7 +25,7 @@ void AuraRenderer::Update(float _delta_time)
 
 	if (GetOwner()->GetComponent<SquareCollider>()->IsColliding(*refillCollider, *playerCollider))
 	{
-		Reserve = 100;
+		Reserve = MaxReserve;
 	}
 }
 

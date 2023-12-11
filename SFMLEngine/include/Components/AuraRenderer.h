@@ -14,14 +14,17 @@ public :
 	void Update(float _delta_time);
 	void Render(sf::RenderWindow* _window) override;
 
+	bool IsActive() { return isActive; }
 	void Refill();
+	float GetRadius() { return Radius; }
 
 	void SwitchActive();
 
 private :
 	float Radius = 200;
 
-	float Reserve = 100;
+	float MaxReserve = 1000;
+	float Reserve = 1000;
 
 	bool isActive = false;
 };

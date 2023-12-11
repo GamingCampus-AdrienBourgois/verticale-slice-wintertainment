@@ -20,9 +20,9 @@ void RendererComponent::Render(sf::RenderWindow* _window)
 	Component::Render(_window);
 
 	const auto position = GetOwner()->GetPosition();
-	Sprite->setOrigin(12.0f, 12.0f);
+	Sprite->setOrigin(OriginX, OriginY);
 	Sprite->setPosition(position.x, position.y);
-	Sprite->setScale(sf::Vector2f(2.0f, 2.0f));
+	Sprite->setScale(sf::Vector2f(scale, scale));
 	_window->draw(*Sprite);
 }
 

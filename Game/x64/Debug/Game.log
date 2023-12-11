@@ -1,1 +1,42 @@
-﻿  Game.vcxproj -> C:\Users\julen\Documents\Vertical Slice 2\verticale-slice-wintertainment\x64\Debug\Game.exe
+﻿  main.cpp
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Menu.h(24,48): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Menu.h(24,37): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(31,50): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(31,39): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(60,50): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(60,39): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(75,47): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\Game\Scenes\Autumn1.h(75,36): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+  Game.vcxproj -> C:\Users\jmontes\Documents\Vertical Slice\verticale-slice-wintertainment\x64\Debug\Game.exe

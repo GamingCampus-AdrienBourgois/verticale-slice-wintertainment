@@ -21,9 +21,11 @@
   <ItemGroup>
     <ClCompile Include="include\Components\AuraRenderer.cpp" />
     <ClCompile Include="include\Components\CircleShapeRenderer.cpp" />
+    <ClCompile Include="include\Components\CowTest.cpp" />
     <ClCompile Include="include\Components\MenuInput.cpp" />
     <ClCompile Include="include\Components\PlayerInput.cpp" />
     <ClCompile Include="include\Components\RendererComponent.cpp" />
+    <ClCompile Include="include\Components\SeasonComp.cpp" />
     <ClCompile Include="include\Components\ViewComponent.cpp" />
     <ClCompile Include="src\Components\TextComponent.cpp" />
     <ClCompile Include="src\Modules\ImGuiModule.cpp" />
@@ -40,9 +42,11 @@
     <ClCompile Include="src\Modules\WindowModule.cpp" />
     <ClInclude Include="include\Components\AuraRenderer.h" />
     <ClInclude Include="include\Components\CircleShapeRenderer.h" />
+    <ClInclude Include="include\Components\CowTest.h" />
     <ClInclude Include="include\Components\MenuInput.h" />
     <ClInclude Include="include\Components\PlayerInput.h" />
     <ClInclude Include="include\Components\RendererComponent.h" />
+    <ClInclude Include="include\Components\SeasonComp.h" />
     <ClInclude Include="include\Components\TextComponent.h" />
     <ClInclude Include="include\Components\ViewComponent.h" />
     <ClInclude Include="include\Modules\ImGuiModule.h" />
