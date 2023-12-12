@@ -11,8 +11,8 @@ int main()
 	engine->Init();
 
 	SceneModule* scene_module = engine->GetModuleManager()->GetModule<SceneModule>();
-	scene_module->SetScene<Autumn1>();
-
+	scene_module->SetScene<MenuScene>();
+	
 	engine->Run();
 
 	return 0;

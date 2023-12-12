@@ -1,4 +1,5 @@
 #include "MenuInput.h"
+#include "Modules/InputModule.h"
 #include <math.h>
 
 MenuInput::MenuInput()
@@ -11,7 +12,8 @@ MenuInput::~MenuInput()
 
 void MenuInput::Update(float _delta_time)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+	// si tu appuie sur Z au dessus sur le menu seras en vert
+	if (InputModule::GetKeyDown(sf::Keyboard::Z))
 	{
 		menu[SelectedMenu]->GetComponent<TextComponent>()->SetColor(sf::Color::White);
 		SelectedMenu--;
@@ -21,7 +23,8 @@ void MenuInput::Update(float _delta_time)
 		}
 		menu[SelectedMenu]->GetComponent<TextComponent>()->SetColor(sf::Color::Green);
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	// si tu appuie sur S au dessous sur le menu seras en vert
+	else if (InputModule::GetKeyDown(sf::Keyboard::S))
 	{
 		menu[SelectedMenu]->GetComponent<TextComponent>()->SetColor(sf::Color::White);
 		SelectedMenu++;
@@ -31,7 +34,8 @@ void MenuInput::Update(float _delta_time)
 		}
 		menu[SelectedMenu]->GetComponent<TextComponent>()->SetColor(sf::Color::Green);
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+	// si tu appuie sur Enter il t'enverra en fonction de la ou tu es situé en vert
+	else if (InputModule::GetKeyDown(sf::Keyboard::Enter))
 	{
 		if (SelectedMenu == 0)
 		{
@@ -43,7 +47,7 @@ void MenuInput::Update(float _delta_time)
 		}
 		if (SelectedMenu == 2)
 		{
-			
+
 		}
 	}
 }
