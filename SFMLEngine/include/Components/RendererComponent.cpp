@@ -39,7 +39,7 @@ void RendererComponent::SetTexture(std::string _texture)
 	}
 }
 
-void RendererComponent::CreateSprite(std::vector<int> _spriteData)
+sf::Sprite* RendererComponent::CreateSprite(std::vector<int> _spriteData)
 {
 	sf::Sprite* sprite = new sf::Sprite();
 	sf::IntRect coordonnees(_spriteData[0], _spriteData[1], _spriteData[2], _spriteData[3]);
@@ -47,4 +47,44 @@ void RendererComponent::CreateSprite(std::vector<int> _spriteData)
 	sprite->setTextureRect(coordonnees);
 
 	Sprites.push_back(sprite);
+	return(sprite);
 }
+
+void RendererComponent::CreateDownSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	DownSprites.push_back(sprite);
+}
+
+void RendererComponent::CreateUpSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	UpSprites.push_back(sprite);
+}
+
+void RendererComponent::CreateLeftSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	LeftSprites.push_back(sprite);
+}
+
+void RendererComponent::CreateRightSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	RightSprites.push_back(sprite);
+}
+
+void RendererComponent::InitSprites()
+{
+	CurrentSprites = DownSprites;
+	Animation.emplace("DownSprites", DownSprites);
+	Animation.emplace("UpSprites", UpSprites);
+	Animation.emplace("LeftSprites", LeftSprites);
+	Animation.emplace("RightSprites", RightSprites);
+}
+
+
