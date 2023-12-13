@@ -129,6 +129,11 @@ public :
 		rendererComponent->SetOriginX(110);
 		rendererComponent->SetOriginY(64);
 
+		SquareCollider* autumnCollider = cow->CreateComponent<SquareCollider>();
+		autumnCollider->SetWidth(220);
+		autumnCollider->SetHeight(128);
+
+
 		CowTest* cowTest = cow->CreateComponent<CowTest>();
 
 		return cow;

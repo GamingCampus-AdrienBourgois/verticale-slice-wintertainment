@@ -23,8 +23,8 @@ public :
 private :
 	float Radius = 200;
 
-	float MaxReserve = 1000;
-	float Reserve = 1000;
+	float MaxReserve = 800;
+	float Reserve = 800;
 
 	bool isActive = false;
 };
