@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "Component.h"
+#include "RendererComponent.h"
 
 class AuraRenderer final : public Component
 {
@@ -13,6 +14,7 @@ public :
 
 	void Update(float _delta_time);
 	void Render(sf::RenderWindow* _window) override;
+	void SetRendererComponent(RendererComponent* _rendererComponent) { rendererComponent = _rendererComponent; }
 
 	bool IsActive() { return isActive; }
 	void Refill();
@@ -21,6 +23,8 @@ public :
 	void SwitchActive();
 
 private :
+	RendererComponent* rendererComponent = nullptr;
+
 	float Radius = 200;
 
 	float MaxReserve = 800;

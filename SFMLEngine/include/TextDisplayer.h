@@ -33,7 +33,7 @@ private :
 	bool write = false;
 	sf::Font font;
 	float timer = 0.0;
-	float updatetimer = 0.05;
+	float updatetimer = 0.025;
 
 	sf::Text text;
 	int currentChar = 0;

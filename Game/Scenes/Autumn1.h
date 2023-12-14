@@ -25,7 +25,7 @@ public :
 		std::vector<std::vector<int>> playerLeftSprites{ {96,0,24,24},{120,0,24,24 },{144,0,24,24},{168,0,24,24} };
 		std::vector<std::vector<int>> playerRightSprites{ {192,0,24,24},{216,0,24,24 },{240,0,24,24},{264,0,24,24} };
 		std::vector<std::vector<int>> playerUpSprites{ {288,0,24,24},{312,0,24,24 },{336,0,24,24},{360,0,24,24} };
-		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, 100,100);
+		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, 100, 100);
 
 		std::vector<std::vector<int>> cowSprites{ {0,128,220,128}, {220,128,220,128} };
 		GameObject* cow1 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 200, 200);
@@ -45,6 +45,8 @@ public :
 		GameObject* cow8 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 300, 400);
 
 		GameObject* cow9 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 400, 400);
+
+		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9 };
 
 		GameObject* textbox = CreateTextBox("textbox");
 	}
@@ -87,6 +89,7 @@ public :
 		squareCollider->SetWidth(24);
 
 		AuraRenderer* auraRenderer = player->CreateComponent<AuraRenderer>();
+		auraRenderer->SetRendererComponent(rendererComponent);
 
 		PlayerInput* playerInput = player->CreateComponent<PlayerInput>();
 		playerInput->SetAnimationComponent(animationComponent);
@@ -135,6 +138,8 @@ public :
 
 
 		CowTest* cowTest = cow->CreateComponent<CowTest>();
+
+		cowTest->SetAutumnCollider(autumnCollider);
 
 		return cow;
 	}

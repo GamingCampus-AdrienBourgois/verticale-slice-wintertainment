@@ -16,6 +16,7 @@ void PlayerInput::Update(float _delta_time)
 	Maths::Vector2<float> position = GetOwner()->GetPosition();
 	if (canMove == true)
 	{
+		Maths::Vector2f OriginalPosition = GetOwner()->GetPosition();
 		if (InputModule::GetKey(sf::Keyboard::Z))
 		{
 			GetOwner()->SetPosition(position + Maths::Vector2f::Down * _delta_time * Speed);
@@ -44,6 +45,7 @@ void PlayerInput::Update(float _delta_time)
 		{
 			GetOwner()->GetComponent<AuraRenderer>()->SwitchActive();
 		}
+
 	}
 	if (InputModule::GetKeyDown(sf::Keyboard::T))
 	{

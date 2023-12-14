@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"
+#include "SquareCollider.h"
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -19,6 +20,7 @@ public:
 	void SetSprite(sf::Sprite* sprite) { Sprite = sprite; }
 	std::vector<sf::Sprite*> GetSprites() { return CurrentSprites; }
 	void SetCurrentSprites(std::string name) { CurrentSprites = Animation[name]; }
+	void SetCows(std::vector<GameObject*> _cows) { for (int i = 0; i < _cows.size(); i++) { SquareCollider* cowCollider = _cows[i]->GetComponent<SquareCollider>(); cows.push_back(cowCollider); } }
 
 	void CreateDownSprite(std::vector<int> _spriteData);
 	void CreateUpSprite(std::vector<int> _spriteData);
@@ -40,6 +42,7 @@ private:
 	std::vector<sf::Sprite*> Sprites;
 	std::vector<sf::Sprite*> CurrentSprites;
 
+	std::vector<SquareCollider*> cows;
 	std::map<std::string, std::vector<sf::Sprite*>> Animation;
 
 	std::vector<sf::Sprite*> DownSprites;
