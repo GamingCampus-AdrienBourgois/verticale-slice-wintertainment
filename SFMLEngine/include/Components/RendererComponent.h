@@ -22,6 +22,7 @@ public:
 	void SetCows(std::vector<GameObject*> _cows) { cows = _cows; }
 	std::vector<GameObject*> GetCows() { return cows; }
 	void SetCurrentSeason(int id) { currentSeason = id; }
+	int GetCurrentSeason() { return currentSeason; }
 
 	void CreateDownSprite(std::vector<int> _spriteData);
 	void CreateUpSprite(std::vector<int> _spriteData);
@@ -43,7 +44,7 @@ private:
 	std::vector<sf::Sprite*> Sprites;
 	std::vector<sf::Sprite*> CurrentSprites;
 
-	int currentSeason = 0;
+	int currentSeason = 1;
 
 	std::vector<GameObject*> cows;
 	std::map<std::string, std::vector<sf::Sprite*>> Animation;

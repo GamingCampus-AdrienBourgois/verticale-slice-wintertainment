@@ -2,6 +2,8 @@
 #include "AuraRenderer.h"
 #include "Modules/InputModule.h"
 #include "TextDisplayer.h"
+#include "SquareCollider.h"
+#include "CowTest.h"
 
 PlayerInput::PlayerInput()
 {
@@ -45,8 +47,26 @@ void PlayerInput::Update(float _delta_time)
 		{
 			GetOwner()->GetComponent<AuraRenderer>()->SwitchActive();
 		}
-		for (int i = 0; i < rendererComponent->GetCows().size(); i++)
+		std::vector<GameObject*> cows = rendererComponent->GetCows();
+		SquareCollider* playerCollider = GetOwner()->GetComponent<SquareCollider>();
+		for (int i = 0; i < cows.size(); i++)
 		{
+			if (rendererComponent->GetCurrentSeason() == 0)
+			{
+				SquareCollider* cowCollider = cows[i]->GetComponent<CowTest>()->GetWinterCollider();
+				if (cowCollider != nullptr && cowCollider->IsColliding(*cowCollider, *playerCollider))
+				{
+					GetOwner()->SetPosition(OriginalPosition);
+				}
+			}
+			else
+			{
+				SquareCollider* cowCollider = cows[i]->GetComponent<CowTest>()->GetAutumnCollider();
+				if (cowCollider != nullptr && cowCollider->IsColliding(*cowCollider, *playerCollider))
+				{
+					GetOwner()->SetPosition(OriginalPosition);
+				}
+			}
 		}
 
 	}
