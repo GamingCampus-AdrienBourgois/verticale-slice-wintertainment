@@ -64,6 +64,7 @@ void AuraRenderer::SwitchActive()
 	if (isActive)
 	{
 		isActive = false;
+		rendererComponent->SetCurrentSeason(0);
 	}
 	else
 	{
@@ -71,5 +72,6 @@ void AuraRenderer::SwitchActive()
 		{
 			isActive = true;
 		}
+		rendererComponent->SetCurrentSeason(1);
 	}
 }

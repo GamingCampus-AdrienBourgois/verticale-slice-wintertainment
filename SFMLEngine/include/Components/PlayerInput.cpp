@@ -45,6 +45,9 @@ void PlayerInput::Update(float _delta_time)
 		{
 			GetOwner()->GetComponent<AuraRenderer>()->SwitchActive();
 		}
+		for (int i = 0; i < rendererComponent->GetCows().size(); i++)
+		{
+		}
 
 	}
 	if (InputModule::GetKeyDown(sf::Keyboard::T))
