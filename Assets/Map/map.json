@@ -73,7 +73,8 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"autumn farm tilemap.tsx"
+          "source": "autumn farm tilemap.tsx",
+          "name" :  "tileset"
         }],
  "tilewidth":16,
  "type":"map",

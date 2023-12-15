@@ -12,6 +12,7 @@
 #include "TextDisplayer.h"
 #include "TextComponent.h"
 #include "AnimationComponent.h"
+#include "MapComponent.h"
 
 class Autumn1 final : public Scene
 {
@@ -19,6 +20,8 @@ public :
 
 	Autumn1() : Scene("Autumn1")
 	{
+		GameObject* map = CreateMap("map", 0, 0);
+
 		GameObject* refill1 = CreateRefill("refill", 200, 100);
 
 		std::vector<std::vector<int>> playerDownSprites{ {4,0,16,24},{28,0,16,24 },{52,0,16,24},{76,0,16,24} };
@@ -78,7 +81,7 @@ public :
 		}
 		rendererComponent->InitSprites();
 		rendererComponent->SetSprite(0);
-		rendererComponent->SetScale(2.0);
+		rendererComponent->SetScale(1);
 		rendererComponent->SetOriginX(8);
 		rendererComponent->SetOriginY(12);
 
@@ -87,10 +90,10 @@ public :
 		animationComponent->SetUpdateTimer(0.1);
 
 		SquareCollider* squareCollider = player->CreateComponent<SquareCollider>();
-		squareCollider->SetHeight(48);
-		squareCollider->SetWidth(32);
-		squareCollider->SetX(16);
-		squareCollider->SetY(24);
+		squareCollider->SetHeight(24);
+		squareCollider->SetWidth(16);
+		squareCollider->SetX(12);
+		squareCollider->SetY(8);
 
 		AuraRenderer* auraRenderer = player->CreateComponent<AuraRenderer>();
 		auraRenderer->SetRendererComponent(rendererComponent);
@@ -159,5 +162,17 @@ public :
 		TextDisplayer* textDisplayer = textbox->CreateComponent<TextDisplayer>();
 
 		return textbox;
+	}
+
+	GameObject* CreateMap(std::string name, float positionX, float positionY)
+	{
+		GameObject* map = CreateGameObject(name);
+		map->SetPosition(Maths::Vector2f(positionX, positionY));
+
+		MapComponent* mapComponent = map->CreateComponent<MapComponent>();
+		mapComponent->SetName(name);
+		mapComponent->LoadMap();
+
+		return map;
 	}
 };
