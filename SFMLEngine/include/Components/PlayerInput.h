@@ -20,6 +20,7 @@ public:
 	void SetRendererComponent(RendererComponent* _rendererComponent) { rendererComponent = _rendererComponent; }
 	void SetWalls(std::vector<SquareCollider*> _walls) { walls = _walls; }
 	void WasserEinstellen(std::vector<SquareCollider*> _wasser) { wasser = _wasser; }
+	void SetNPC(SquareCollider* _npc) { npcs.push_back(_npc); }
 
 private:
 	float Speed = 100.0f;
@@ -29,4 +30,5 @@ private:
 	RendererComponent* rendererComponent = nullptr;
 	std::vector<SquareCollider*> walls;
 	std::vector<SquareCollider*> wasser;
+	std::vector<SquareCollider*> npcs;
 };

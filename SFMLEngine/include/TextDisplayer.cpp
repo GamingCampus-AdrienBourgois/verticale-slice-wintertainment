@@ -37,6 +37,22 @@ void TextDisplayer::Update(float _delta_time)
 		if (timer > updatetimer)
 		{
 			Camera = GetOwner()->GetSceneOwner()->FindGameObject("player")->GetPosition();
+			if (Camera.x < 120)
+			{
+				Camera.x = 120;
+			}
+			else if (Camera.x > 360)
+			{
+				Camera.x = 360;
+			}
+			if (Camera.y < 68)
+			{
+				Camera.y = 68;
+			}
+			else if (Camera.y > 252)
+			{
+				Camera.y = 252;
+			}
 			text.setString(text.getString() + name[currentChar]);
 			currentChar++;
 			if (currentChar >= name.size())

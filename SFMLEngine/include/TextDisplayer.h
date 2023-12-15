@@ -2,6 +2,7 @@
 
 #include "Component.h"
 #include "Components/TextComponent.h"
+#include "Components/ViewComponent.h"
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -18,7 +19,6 @@ public :
 		if (open) { Close(); }
 		else { Open(); }
 	}
-
 	void LoadFont();
 
 	void Update(float _delta_time);

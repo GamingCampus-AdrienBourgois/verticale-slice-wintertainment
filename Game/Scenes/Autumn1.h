@@ -32,6 +32,9 @@ public :
 		std::vector<std::vector<int>> playerUpSprites{ {292,0,16,24},{316,0,16,24 },{340,0,16,24},{364,0,16,24} };
 		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, 100, 100);
 
+		std::vector<std::vector<int>> basilSprites{ {5,32,21,31},{37,32,21,31},{69,32,21,31},{101,32,21,31},{133,32,21,31} };
+		SquareCollider* basil = CreateNPC("basil", "Assets/Characters/Basil/Idle/Pink_Head_Idle-Sheet.png", basilSprites, 50,60, 0.3);
+
 		std::vector<std::vector<int>> cowSprites{ {10,139,204,120}, {230,139,204,120} };
 		GameObject* cow1 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 200, 200);
 
@@ -85,6 +88,8 @@ public :
 
 		player->GetComponent<PlayerInput>()->WasserEinstellen(wasser);
 
+		player->GetComponent<PlayerInput>()->SetNPC(basil);
+
 		GameObject* textbox = CreateTextBox("textbox");
 	}
 
@@ -137,6 +142,36 @@ public :
 		ViewComponent* viewComponent = player->CreateComponent<ViewComponent>();
 
 		return player;
+	}
+
+	SquareCollider* CreateNPC(std::string name, std::string texture, std::vector<std::vector<int>> downsprites, int positionX, int positionY, float updateTimer)
+	{
+		GameObject* npc = CreateGameObject(name);
+		npc->SetPosition(Maths::Vector2f(positionX, positionY));
+
+		RendererComponent* rendererComponent = npc->CreateComponent<RendererComponent>();
+		rendererComponent->SetTexture(texture);
+		for (int i = 0; i < downsprites.size(); i++)
+		{
+			rendererComponent->CreateDownSprite(downsprites[i]);
+		}
+		rendererComponent->InitSprites();
+		rendererComponent->SetSprite(0);
+		rendererComponent->SetScale(1);
+		rendererComponent->SetOriginX(10);
+		rendererComponent->SetOriginY(15);
+
+		AnimationComponent* animationComponent = npc->CreateComponent<AnimationComponent>();
+		animationComponent->SetRendererComponent(rendererComponent);
+		animationComponent->SetUpdateTimer(updateTimer);
+
+		SquareCollider* squareCollider = npc->CreateComponent<SquareCollider>();
+		squareCollider->SetHeight(31);
+		squareCollider->SetWidth(21);
+		squareCollider->SetX(15);
+		squareCollider->SetY(10);
+
+		return squareCollider;
 	}
 
 	GameObject* CreateRefill(std::string name, int positionX, int positionY)
@@ -207,6 +242,7 @@ public :
 
 		return map;
 	}
+
 	GameObject* CreateAudio(std::string name, std::string musicFile)
 	{
 		GameObject* musicName = CreateGameObject(name);
@@ -217,6 +253,7 @@ public :
 
 		return musicName;
 	}
+
 	std::vector<SquareCollider*> SetWalls(std::vector<std::vector<int>> gridcollider, int id)
 	{
 		std::vector<SquareCollider*> walls;

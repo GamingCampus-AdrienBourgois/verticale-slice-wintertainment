@@ -85,6 +85,13 @@ void PlayerInput::Update(float _delta_time)
 				}
 			}
 		}
+		for (int i = 0; i < npcs.size(); ++i)
+		{
+			if (SquareCollider::IsColliding(*playerCollider, *npcs[i]))
+			{
+				GetOwner()->SetPosition(OriginalPosition);
+			}
+		}
 
 	}
 	if (InputModule::GetKeyDown(sf::Keyboard::T))
