@@ -79,6 +79,7 @@
     <ClInclude Include="include\Modules\InputModule.h" />
     <ClInclude Include="include\Snowflake.h" />
     <ClInclude Include="include\TextDisplayer.h" />
+    <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Scene.cpp" />

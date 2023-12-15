@@ -26,7 +26,7 @@ public :
 private :
 	RendererComponent* rendererComponent = nullptr;
 
-	float Radius = 200;
+	float Radius = 50;
 
 	float UpdateTimer = 0.05;
 	float Timer = 0;

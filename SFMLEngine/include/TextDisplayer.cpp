@@ -6,8 +6,8 @@ TextDisplayer::TextDisplayer()
 
 	box.setFillColor(sf::Color::Black);
 	box.setOutlineColor(sf::Color::Yellow);
-	box.setOutlineThickness(10);
-	box.setSize(sf::Vector2f(820, 200));
+	box.setOutlineThickness(3);
+	box.setSize(sf::Vector2f(220, 50));
 
 	text.setFillColor(sf::Color::White);
 	text.setCharacterSize(size);
@@ -54,11 +54,11 @@ void TextDisplayer::Render(sf::RenderWindow* _window)
 	if (open == true)
 	{
 		Maths::Vector2<float> position = Camera;
-		float boxx = position.x - 410;
-		float boxy = position.y + 100;
+		float boxx = position.x - 110;
+		float boxy = position.y + 10;
 
-		float textx = position.x - 400;
-		float texty = position.y + 110;
+		float textx = position.x - 108;
+		float texty = position.y + 11;
 
 		box.setPosition(boxx, boxy);
 		text.setPosition(textx, texty);

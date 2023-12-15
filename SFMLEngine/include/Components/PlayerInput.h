@@ -19,7 +19,7 @@ public:
 	void SetRendererComponent(RendererComponent* _rendererComponent) { rendererComponent = _rendererComponent; }
 
 private:
-	float Speed = 200.0f;
+	float Speed = 100.0f;
 	bool canMove = true;
 
 	AnimationComponent* animationComponent = nullptr;

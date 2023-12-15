@@ -69,12 +69,12 @@ void AuraRenderer::Render(sf::RenderWindow* _window)
 		Zone.setRadius(Radius);
 		Zone.setOrigin(Radius,Radius);
 		Zone.setFillColor(sf::Color::Transparent);
-		Zone.setOutlineThickness(5);
+		Zone.setOutlineThickness(2);
 		Zone.setOutlineColor(sf::Color::White);
 
 		sf::RectangleShape Jauge;
-		Jauge.setSize(sf::Vector2f(40*Reserve/100,10));
-		Jauge.setPosition(position.x+24, position.y-24);
+		Jauge.setSize(sf::Vector2f(10*Reserve/100,3));
+		Jauge.setPosition(position.x+12, position.y-12);
 		Jauge.setFillColor(sf::Color::Magenta);
 		Jauge.setOutlineThickness(1);
 		Jauge.setOutlineColor(sf::Color::White);

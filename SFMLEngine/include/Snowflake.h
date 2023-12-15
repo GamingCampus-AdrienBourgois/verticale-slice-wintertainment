@@ -7,12 +7,12 @@
 class Snowflake
 {
 public :
-	Snowflake(float X, float Y) { positionX = X;positionY = Y; speed = rand() % 200 + 200; }
+	Snowflake(float X, float Y) { positionX = X;positionY = Y; speed = rand() % 200 + 100; }
 	~Snowflake(){}
 
 	void Update(float _delta_time) { positionY += _delta_time * speed; }
 	void Render(sf::RenderWindow& window) {
-		sf::CircleShape shape(5);
+		sf::CircleShape shape(2);
 		shape.setPosition(positionX, positionY);
 		shape.setFillColor(sf::Color::White);
 		window.draw(shape);

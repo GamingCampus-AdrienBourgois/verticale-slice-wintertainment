@@ -102,7 +102,11 @@
     <ClInclude Include="include\Snowflake.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="include\Components\AudioComponent.h">
+=======
+    <ClInclude Include="TileMap.h">
+>>>>>>> refs/remotes/origin/main
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
