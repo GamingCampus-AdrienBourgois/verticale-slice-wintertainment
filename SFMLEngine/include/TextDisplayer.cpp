@@ -78,6 +78,7 @@ void TextDisplayer::Render(sf::RenderWindow* _window)
 
 		box.setPosition(boxx, boxy);
 		text.setPosition(textx, texty);
+		text.setScale(0.2, 0.2);
 
 		_window->draw(box);
 		_window->draw(text);

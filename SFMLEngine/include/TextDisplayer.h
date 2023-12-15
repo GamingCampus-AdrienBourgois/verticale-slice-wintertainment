@@ -28,7 +28,7 @@ private :
 
 	sf::Color color;
 	std::string name;
-	int size = 10;
+	int size = 48;
 	bool open = false;
 	bool write = false;
 	sf::Font font;
