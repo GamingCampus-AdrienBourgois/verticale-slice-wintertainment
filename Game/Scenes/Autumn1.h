@@ -12,6 +12,7 @@
 #include "TextDisplayer.h"
 #include "TextComponent.h"
 #include "AnimationComponent.h"
+#include "AudioComponent.h"
 
 class Autumn1 final : public Scene
 {
@@ -19,6 +20,7 @@ public :
 
 	Autumn1() : Scene("Autumn1")
 	{
+		GameObject* WorldGame = CreateAudio("Music", "Assets/Audio/MusicBackground.mp3");
 		GameObject* refill1 = CreateRefill("refill", 200, 100);
 
 		std::vector<std::vector<int>> playerDownSprites{ {4,0,16,24},{28,0,16,24 },{52,0,16,24},{76,0,16,24} };
@@ -160,4 +162,15 @@ public :
 
 		return textbox;
 	}
+	GameObject* CreateAudio(std::string name, std::string musicFile)
+	{
+		GameObject* musicName = CreateGameObject(name);
+
+		AudioComponent* audioComponent = musicName->CreateComponent<AudioComponent>();
+		audioComponent->SetMusic(musicFile);
+		audioComponent->LoadMusic();
+
+		return musicName;
+	}
+
 };
