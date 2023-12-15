@@ -180,11 +180,11 @@ public :
 		refill->SetPosition(Maths::Vector2f(positionX, positionY));
 
 		CircleShapeRenderer* circleShapeRenderer = refill->CreateComponent<CircleShapeRenderer>();
-		circleShapeRenderer->SetRadius(24);
+		circleShapeRenderer->SetRadius(12);
 
 		SquareCollider* squareCollider = refill->CreateComponent<SquareCollider>();
-		squareCollider->SetHeight(24);
-		squareCollider->SetWidth(24);
+		squareCollider->SetHeight(12);
+		squareCollider->SetWidth(12);
 		squareCollider->SetX(0);
 		squareCollider->SetY(0);
 

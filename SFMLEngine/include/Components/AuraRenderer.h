@@ -31,8 +31,8 @@ private :
 	float UpdateTimer = 0.05;
 	float Timer = 0;
 	std::vector<Snowflake*> snowflakes;
-	float MaxReserve = 100;
-	float Reserve = 100;
+	float MaxReserve = 500;
+	float Reserve = 500;
 
 	bool isActive = false;
 };
