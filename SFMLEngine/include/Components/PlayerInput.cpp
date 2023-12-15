@@ -54,7 +54,7 @@ void PlayerInput::Update(float _delta_time)
 			if (rendererComponent->GetCurrentSeason() == 0)
 			{
 				SquareCollider* cowCollider = cows[i]->GetComponent<CowTest>()->GetWinterCollider();
-				if (cowCollider != nullptr && cowCollider->IsColliding(*cowCollider, *playerCollider))
+				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
 				{
 					GetOwner()->SetPosition(OriginalPosition);
 				}
@@ -62,7 +62,24 @@ void PlayerInput::Update(float _delta_time)
 			else
 			{
 				SquareCollider* cowCollider = cows[i]->GetComponent<CowTest>()->GetAutumnCollider();
-				if (cowCollider != nullptr && cowCollider->IsColliding(*cowCollider, *playerCollider))
+				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
+				{
+					GetOwner()->SetPosition(OriginalPosition);
+				}
+			}
+		}
+		for (int i = 0; i < walls.size(); ++i)
+		{
+			if (SquareCollider::IsColliding(*playerCollider, *walls[i]))
+			{
+				GetOwner()->SetPosition(OriginalPosition);
+			}
+		}
+		if (rendererComponent->GetCurrentSeason() == 1)
+		{
+			for (int i = 0; i < wasser.size(); ++i)
+			{
+				if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
 				{
 					GetOwner()->SetPosition(OriginalPosition);
 				}

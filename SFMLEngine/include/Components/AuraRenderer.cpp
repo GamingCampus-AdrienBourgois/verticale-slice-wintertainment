@@ -45,14 +45,14 @@ void AuraRenderer::Update(float _delta_time)
 		Reserve -= _delta_time * 25;
 		if (Reserve < 0)
 		{
-			isActive = false;
+			SwitchActive();
 		}
 	}
 	GameObject* refill = GetOwner()->GetSceneOwner()->FindGameObject("refill");
 	SquareCollider* refillCollider = refill->GetComponent<SquareCollider>();
 	SquareCollider* playerCollider = GetOwner()->GetComponent<SquareCollider>();
 
-	if (GetOwner()->GetComponent<SquareCollider>()->IsColliding(*refillCollider, *playerCollider))
+	if (SquareCollider::IsColliding(*refillCollider, *playerCollider))
 	{
 		Reserve = MaxReserve;
 	}
@@ -105,7 +105,7 @@ void AuraRenderer::SwitchActive()
 		if (Reserve > 0)
 		{
 			isActive = true;
+			rendererComponent->SetCurrentSeason(0);
 		}
-		rendererComponent->SetCurrentSeason(0);
 	}
 }

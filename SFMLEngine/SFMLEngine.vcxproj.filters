@@ -1,225 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="AudioComponent.cpp" />
+    <ClCompile Include="include\Components\AuraRenderer.cpp" />
+    <ClCompile Include="include\Components\CircleShapeRenderer.cpp" />
+    <ClCompile Include="include\Components\CowTest.cpp" />
+    <ClCompile Include="include\Components\MenuInput.cpp" />
+    <ClCompile Include="include\Components\PlayerInput.cpp" />
+    <ClCompile Include="include\Components\RendererComponent.cpp" />
+    <ClCompile Include="include\Components\SeasonComp.cpp" />
+    <ClCompile Include="include\Components\ViewComponent.cpp" />
+    <ClCompile Include="include\TextDisplayer.cpp" />
+    <ClCompile Include="src\Components\AnimationComponent.cpp" />
+    <ClCompile Include="src\Components\MapComponent.cpp" />
+    <ClCompile Include="src\Components\TextComponent.cpp" />
+    <ClCompile Include="src\Modules\ImGuiModule.cpp" />
+    <ClCompile Include="ImGui\imgui-SFML.cpp" />
+    <ClCompile Include="ImGui\imgui.cpp" />
+    <ClCompile Include="ImGui\imgui_demo.cpp" />
+    <ClCompile Include="ImGui\imgui_draw.cpp" />
+    <ClCompile Include="ImGui\imgui_tables.cpp" />
+    <ClCompile Include="ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Modules\InputModule.cpp" />
+    <ClCompile Include="src\Modules\SceneModule.cpp" />
+    <ClCompile Include="src\Modules\TimeModule.cpp" />
+    <ClCompile Include="src\Modules\WindowModule.cpp" />
+    <ClCompile Include="src\ModuleManager.cpp" />
+    <ClCompile Include="src\Module.cpp" />
+    <ClCompile Include="src\Components\SpriteRenderer.cpp" />
+    <ClCompile Include="src\Components\ARendererComponent.cpp" />
+    <ClCompile Include="src\Components\RectangleShapeRenderer.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\Component.cpp" />
+    <ClCompile Include="src\Components\SquareCollider.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\Maths\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Maths\Vector2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\SquareCollider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\RectangleShapeRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\ARendererComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\SpriteRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Module.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ModuleManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Modules\TimeModule.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Modules\SceneModule.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Modules\WindowModule.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Modules\InputModule.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Modules\ImGuiModule.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\TextComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\MenuInput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\RendererComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\PlayerInput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\AuraRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\CircleShapeRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\ViewComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\SeasonComp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\CowTest.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\TextDisplayer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\MapComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Components\AnimationComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Snowflake.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="include\Components\AudioComponent.h">
-=======
-    <ClInclude Include="TileMap.h">
->>>>>>> refs/remotes/origin/main
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="include\Components\AnimationComponent.h" />
+    <ClInclude Include="include\Components\AudioComponent.h" />
+    <ClInclude Include="include\Components\AuraRenderer.h" />
+    <ClInclude Include="include\Components\CircleShapeRenderer.h" />
+    <ClInclude Include="include\Components\CowTest.h" />
+    <ClInclude Include="include\Components\MapComponent.h" />
+    <ClInclude Include="include\Components\MenuInput.h" />
+    <ClInclude Include="include\Components\PlayerInput.h" />
+    <ClInclude Include="include\Components\RendererComponent.h" />
+    <ClInclude Include="include\Components\SeasonComp.h" />
+    <ClInclude Include="include\Components\TextComponent.h" />
+    <ClInclude Include="include\Components\ViewComponent.h" />
+    <ClInclude Include="include\Modules\ImGuiModule.h" />
+    <ClInclude Include="include\Engine.h" />
+    <ClInclude Include="include\Components\ARendererComponent.h" />
+    <ClInclude Include="include\Components\RectangleShapeRenderer.h" />
+    <ClInclude Include="include\Components\SquareCollider.h" />
+    <ClInclude Include="include\Component.h" />
+    <ClInclude Include="include\GameObject.h" />
+    <ClInclude Include="include\Scene.h" />
+    <ClInclude Include="include\Maths\Vector2.h" />
+    <ClInclude Include="include\Components\SpriteRenderer.h" />
+    <ClInclude Include="include\Module.h" />
+    <ClInclude Include="include\ModuleManager.h" />
+    <ClInclude Include="include\Modules\TimeModule.h" />
+    <ClInclude Include="include\Modules\SceneModule.h" />
+    <ClInclude Include="include\Modules\WindowModule.h" />
+    <ClInclude Include="include\Modules\InputModule.h" />
+    <ClInclude Include="include\Snowflake.h" />
+    <ClInclude Include="include\TextDisplayer.h" />
+    <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Maths\Vector2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Component.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\SquareCollider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\RectangleShapeRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\ARendererComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\SpriteRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Module.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ModuleManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Modules\TimeModule.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Modules\SceneModule.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Modules\WindowModule.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Modules\InputModule.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_demo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_draw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_tables.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui_widgets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ImGui\imgui-SFML.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Modules\ImGuiModule.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\TextComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Components\MenuInput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Components\RendererComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Components\PlayerInput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Components\AuraRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Components\CircleShapeRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Components\ViewComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Components\CowTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\Components\SeasonComp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\TextDisplayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\MapComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Components\AnimationComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AudioComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="include\Maths\Vector2.inl">
-      <Filter>Header Files</Filter>
-    </None>
+    <None Include="include\Maths\Vector2.inl" />
   </ItemGroup>
 </Project>
