@@ -99,6 +99,9 @@
     <ClInclude Include="include\Components\AnimationComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Snowflake.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Maths\Vector2.cpp">

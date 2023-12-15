@@ -5,6 +5,7 @@
 
 #include "Component.h"
 #include "RendererComponent.h"
+#include "Snowflake.h"
 
 class AuraRenderer final : public Component
 {
@@ -27,6 +28,9 @@ private :
 
 	float Radius = 200;
 
+	float UpdateTimer = 0.05;
+	float Timer = 0;
+	std::vector<Snowflake*> snowflakes;
 	float MaxReserve = 800;
 	float Reserve = 800;
 
