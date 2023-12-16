@@ -74,11 +74,7 @@ public :
 		GameObject* leaves8 = CreateLeaves("leaves", Leaves, leavesSprites, 80, 192);
 		GameObject* leaves9 = CreateLeaves("leaves", Leaves, leavesSprites, 96, 192);
 		
-		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, 100, 100);
-
-		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19, leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves9 };
-
-		player->GetComponent<RendererComponent>()->SetCows(cows);
+		
 
 		std::vector<std::vector<int>> gridcollider = {
 			{142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142},
@@ -95,21 +91,25 @@ public :
 			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
 			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
 			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 66, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 66, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 66, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 66, 115, 115, 142},
+			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
+			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 115, 115, 142},
+			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 115, 115, 142},
+			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 115, 115, 142},
 			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
 			{142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142} };
 
 		std::vector<SquareCollider*> walls = SetWalls(gridcollider, 142);
+		
 
+		std::vector<SquareCollider*> wasser = WasserEinstellen(gridcollider, "Assets/Objects/ICE-sheet.png", leavesSprites, 66);
+		
+		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, 100, 100);
+
+		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19, leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves9 };
+
+		player->GetComponent<RendererComponent>()->SetCows(cows);
 		player->GetComponent<PlayerInput>()->SetWalls(walls);
-
-		std::vector<SquareCollider*> wasser = SetWalls(gridcollider, 66);
-
 		player->GetComponent<PlayerInput>()->WasserEinstellen(wasser);
-
 		player->GetComponent<PlayerInput>()->SetNPC(basil);
 
 		GameObject* textbox = CreateTextBox("textbox");
@@ -360,6 +360,7 @@ public :
 		}
 		return walls;
 	}
+
 	SquareCollider* CreateWalls(const std::string& name, float positionX, float positionY)
 	{
 		GameObject* gameObject = CreateGameObject(name);
@@ -371,4 +372,43 @@ public :
 
 		return collider;
 	}
+
+	std::vector<SquareCollider*> WasserEinstellen(std::vector<std::vector<int>> netzkollider, std::string textur, std::vector<std::vector<int>> sprites, int identifizieren)
+	{
+		std::vector<SquareCollider*> teich;
+		for (unsigned int i = 0; i < 20; ++i)
+		{
+			for (unsigned int j = 0; j < 30; ++j)
+			{
+				if (netzkollider[i][j] == identifizieren)
+				{
+					GameObject* wasser = CreateGameObject("wasser");
+					wasser->SetPosition(Maths::Vector2f(j*16, i*16));
+
+					SquareCollider* wasserKollider = wasser->CreateComponent<SquareCollider>();
+					wasserKollider->SetWidth(16);
+					wasserKollider->SetHeight(16);
+
+					RendererComponent* renderKomponente = wasser->CreateComponent<RendererComponent>();
+					renderKomponente->SetTexture(textur);
+					for (int i = 0; i < sprites.size(); i++)
+					{
+						renderKomponente->CreateDownSprite(sprites[i]);
+					}
+					renderKomponente->InitSprites();
+					renderKomponente->SetSprite(0);
+					renderKomponente->SetScale(1);
+					renderKomponente->SetOriginX(8);
+					renderKomponente->SetOriginY(8);
+
+					CowTest* kuhPrüfen = wasser->CreateComponent<CowTest>();
+					kuhPrüfen->SetAutumnCollider(wasserKollider);
+
+					teich.push_back(wasserKollider);
+				}
+			}
+		}
+		return teich;
+	}
+
 };

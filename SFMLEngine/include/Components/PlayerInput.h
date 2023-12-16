@@ -24,7 +24,14 @@ public:
 
 private:
 	float Speed = 75.0f;
+	bool canAct = true;
 	bool canMove = true;
+
+	bool schmoove = false;
+	bool lookingDown = true;
+	bool lookingUp = false;
+	bool lookingLeft = false;
+	bool lookingRight = false;
 
 	AnimationComponent* animationComponent = nullptr;
 	RendererComponent* rendererComponent = nullptr;
