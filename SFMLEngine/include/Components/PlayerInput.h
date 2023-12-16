@@ -23,7 +23,7 @@ public:
 	void SetNPC(SquareCollider* _npc) { npcs.push_back(_npc); }
 
 private:
-	float Speed = 100.0f;
+	float Speed = 75.0f;
 	bool canMove = true;
 
 	AnimationComponent* animationComponent = nullptr;

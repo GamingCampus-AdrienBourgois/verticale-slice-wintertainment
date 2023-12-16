@@ -24,7 +24,9 @@ public :
 		GameObject* map = CreateMap("map", 0, 0);
 
 		//GameObject* WorldGame = CreateAudio("Music", "Assets/Audio/MusicBackground.ogg");
-		GameObject* refill1 = CreateRefill("refill", 200, 100);
+
+		std::vector<std::vector<int>> refillSprites{ {480,0,32,32}, {448,0,32,32},{416,0,32,32},{384,0,32,32},{352,0,32,32},{320,0,32,32},{288,0,32,32},{256,0,32,32},{224,0,32,32},{192,0,32,32},{160,0,32,32},{128,0,32,32},{96,0,32,32},{64,0,32,32},{32,0,32,32},{0,0,32,32} };
+		GameObject* refill1 = CreateRefill("refill","Assets/Objects/REFILL-Sheet.png" ,refillSprites,200, 100);
 
 		std::vector<std::vector<int>> playerDownSprites{ {0,0,24,24},{24,0,24,24 },{48,0,24,24},{72,0,24,24} };
 		std::vector<std::vector<int>> playerLeftSprites{ {96,0,24,24},{120,0,24,24 },{144,0,24,24},{168,0,24,24} };
@@ -168,10 +170,10 @@ public :
 		animationComponent->SetUpdateTimer(0.2);
 
 		SquareCollider* squareCollider = player->CreateComponent<SquareCollider>();
-		squareCollider->SetHeight(24);
+		squareCollider->SetHeight(12);
 		squareCollider->SetWidth(16);
 		squareCollider->SetX(12);
-		squareCollider->SetY(12);
+		squareCollider->SetY(0);
 
 		AuraRenderer* auraRenderer = player->CreateComponent<AuraRenderer>();
 		auraRenderer->SetRendererComponent(rendererComponent);
@@ -215,7 +217,7 @@ public :
 		return squareCollider;
 	}
 
-	GameObject* CreateRefill(std::string name, int positionX, int positionY)
+	GameObject* CreateRefill(std::string name, std::string texture, std::vector<std::vector<int>> downsprites, int positionX, int positionY)
 	{
 		GameObject* refill = CreateGameObject(name);
 		refill->SetPosition(Maths::Vector2f(positionX, positionY));
@@ -223,11 +225,27 @@ public :
 		CircleShapeRenderer* circleShapeRenderer = refill->CreateComponent<CircleShapeRenderer>();
 		circleShapeRenderer->SetRadius(12);
 
+		RendererComponent* rendererComponent = refill->CreateComponent<RendererComponent>();
+		rendererComponent->SetTexture(texture);
+		for (int i = 0; i < downsprites.size(); i++)
+		{
+			rendererComponent->CreateDownSprite(downsprites[i]);
+		}
+		rendererComponent->InitSprites();
+		rendererComponent->SetSprite(0);
+		rendererComponent->SetScale(1);
+		rendererComponent->SetOriginX(16);
+		rendererComponent->SetOriginY(16);
+
+		AnimationComponent* animationComponent = refill->CreateComponent<AnimationComponent>();
+		animationComponent->SetRendererComponent(rendererComponent);
+		animationComponent->SetUpdateTimer(0.05);
+
 		SquareCollider* squareCollider = refill->CreateComponent<SquareCollider>();
-		squareCollider->SetHeight(12);
-		squareCollider->SetWidth(12);
-		squareCollider->SetX(0);
-		squareCollider->SetY(0);
+		squareCollider->SetHeight(32);
+		squareCollider->SetWidth(32);
+		squareCollider->SetX(16);
+		squareCollider->SetY(16);
 
 		return refill;
 	}
@@ -348,22 +366,9 @@ public :
 		gameObject->SetPosition(Maths::Vector2f(positionX, positionY));
 
 		SquareCollider* collider = gameObject->CreateComponent<SquareCollider>();
-		collider->SetWidth(16.0f);
-		collider->SetHeight(16.0f);
+		collider->SetWidth(8.0f);
+		collider->SetHeight(8.0f);
 
 		return collider;
-	}
-
-
-	GameObject* WasserErzeugen(std::string name, float positionX, float positionY)
-	{
-		GameObject* wasser = CreateGameObject(name);
-		wasser->SetPosition(Maths::Vector2f(positionX, positionY));
-
-		SquareCollider* wasserkollider = wasser->CreateComponent<SquareCollider>();
-		wasserkollider->SetWidth(16.0f);
-		wasserkollider->SetHeight(16.0f);
-
-		return wasser;
 	}
 };
