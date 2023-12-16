@@ -36,13 +36,14 @@ public :
 		std::vector<std::vector<int>> playerGoingUpSprites{ {816,0,24,24},{840,0,24,24 },{864,0,24,24},{888,0,24,24},{912,0,24,24},{936,0,24,24} };
 		std::vector<std::vector<int>> playerDieSprites{ {960,0,24,24},{984,0,24,24 },{1008,0,24,24},{1032,0,24,24}};
 
-		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, 100, 100);
-
 		std::vector<std::vector<int>> basilSprites{ {5,32,21,31},{37,32,21,31},{69,32,21,31},{101,32,21,31},{133,32,21,31} };
 		SquareCollider* basil = CreateNPC("basil", "Assets/Characters/Basil/Idle/Pink_Head_Idle-Sheet.png", basilSprites, 50,60, 0.3);
 
 		std::string Tree = "Assets/Objects/TREE-Sheet.png";
+		std::string Leaves = "Assets/Objects/Leaf-Sheet.png";
 		std::vector<std::vector<int>> cowSprites{ {0,0,32,32}, {32,0,32,32} };
+
+		std::vector<std::vector<int>> leavesSprites{ {0,0,16,16}, {16,0,16,16} };
 		GameObject* cow11 = CreateCow("cow", Tree, cowSprites, 184, 180);
 		GameObject* cow12 = CreateCow("cow", Tree, cowSprites, 216, 180);
 		GameObject* cow13 = CreateCow("cow", Tree, cowSprites, 248, 180);
@@ -61,10 +62,19 @@ public :
 		GameObject* cow7 = CreateCow("cow", Tree, cowSprites, 392, 200);
 		GameObject* cow8 = CreateCow("cow", Tree, cowSprites, 424, 200);
 		GameObject* cow9 = CreateCow("cow", Tree, cowSprites, 456, 200);
+		GameObject* leaves1 = CreateLeaves("leaves", Leaves, leavesSprites, 64, 160);
+		GameObject* leaves2 = CreateLeaves("leaves", Leaves, leavesSprites, 80, 160);
+		GameObject* leaves3 = CreateLeaves("leaves", Leaves, leavesSprites, 96, 160);
+		GameObject* leaves4 = CreateLeaves("leaves", Leaves, leavesSprites, 64, 176);
+		GameObject* leaves5 = CreateLeaves("leaves", Leaves, leavesSprites, 80, 176);
+		GameObject* leaves6 = CreateLeaves("leaves", Leaves, leavesSprites, 96, 176);
+		GameObject* leaves7 = CreateLeaves("leaves", Leaves, leavesSprites, 64, 192);
+		GameObject* leaves8 = CreateLeaves("leaves", Leaves, leavesSprites, 80, 192);
+		GameObject* leaves9 = CreateLeaves("leaves", Leaves, leavesSprites, 96, 192);
 		
+		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, 100, 100);
 
-
-		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19 };
+		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19, leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves9 };
 
 		player->GetComponent<RendererComponent>()->SetCows(cows);
 
@@ -251,6 +261,37 @@ public :
 		cowTest->SetAutumnCollider(autumnCollider);
 
 		return cow;
+	}
+
+	GameObject* CreateLeaves(std::string name, std::string texture, std::vector<std::vector<int>> sprites, int positionX, int positionY)
+	{
+		GameObject* leaves = CreateGameObject(name);
+		leaves->SetPosition(Maths::Vector2f(positionX, positionY));
+
+		RendererComponent* rendererComponent = leaves->CreateComponent<RendererComponent>();
+		rendererComponent->SetTexture(texture);
+		for (int i = 0; i < sprites.size(); i++)
+		{
+			rendererComponent->CreateDownSprite(sprites[i]);
+		}
+		rendererComponent->InitSprites();
+		rendererComponent->SetSprite(0);
+		rendererComponent->SetScale(1);
+		rendererComponent->SetOriginX(8);
+		rendererComponent->SetOriginY(8);
+
+		SquareCollider* winterCollider = leaves->CreateComponent<SquareCollider>();
+		winterCollider->SetWidth(16);
+		winterCollider->SetHeight(16);
+		winterCollider->SetX(8);
+		winterCollider->SetY(8);
+
+
+		CowTest* cowTest = leaves->CreateComponent<CowTest>();
+
+		cowTest->SetWinterCollider(winterCollider);
+
+		return leaves;
 	}
 
 	GameObject* CreateTextBox(std::string name)
