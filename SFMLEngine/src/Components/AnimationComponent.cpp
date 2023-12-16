@@ -20,7 +20,14 @@ void AnimationComponent::Update(float _delta_time)
 			id++;
 			if (id >= rendererComponent->GetSprites().size())
 			{
-				id = 0;
+				if (playOnce == false)
+				{
+					id = 0;
+				}
+				else
+				{
+					id--;
+				}
 			}
 			rendererComponent->SetSprite(id);
 			Timer = 0;

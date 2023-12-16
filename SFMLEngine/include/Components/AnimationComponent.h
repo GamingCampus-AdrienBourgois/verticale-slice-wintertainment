@@ -17,7 +17,7 @@ public:
 	void SetRendererComponent(RendererComponent* _rendererComponent) { rendererComponent = _rendererComponent; }
 	void SetUpdateTimer(float _updateTimer) { updateTimer = _updateTimer; }
 	void SetID(int _id) { id = _id; }
-
+	void SetPlayOnce(bool AAAAAAAAAAA) { playOnce = AAAAAAAAAAA; }
 
 	void ResetDirection();
 
@@ -29,6 +29,7 @@ public:
 private:
 	std::vector<sf::Sprite*> Animation;
 
+	bool playOnce = false;
 	bool pause = false;
 	int id = 0;
 
