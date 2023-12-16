@@ -23,38 +23,48 @@ public :
 	{
 		GameObject* map = CreateMap("map", 0, 0);
 
-		GameObject* WorldGame = CreateAudio("Music", "Assets/Audio/MusicBackground.ogg");
+		//GameObject* WorldGame = CreateAudio("Music", "Assets/Audio/MusicBackground.ogg");
 		GameObject* refill1 = CreateRefill("refill", 200, 100);
 
-		std::vector<std::vector<int>> playerDownSprites{ {4,0,16,24},{28,0,16,24 },{52,0,16,24},{76,0,16,24} };
-		std::vector<std::vector<int>> playerLeftSprites{ {100,0,16,24},{124,0,16,24 },{148,0,16,24},{172,0,16,24} };
-		std::vector<std::vector<int>> playerRightSprites{ {196,0,16,24},{220,0,16,24 },{244,0,16,24},{268,0,16,24} };
-		std::vector<std::vector<int>> playerUpSprites{ {292,0,16,24},{316,0,16,24 },{340,0,16,24},{364,0,16,24} };
-		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, 100, 100);
+		std::vector<std::vector<int>> playerDownSprites{ {0,0,24,24},{24,0,24,24 },{48,0,24,24},{72,0,24,24} };
+		std::vector<std::vector<int>> playerLeftSprites{ {96,0,24,24},{120,0,24,24 },{144,0,24,24},{168,0,24,24} };
+		std::vector<std::vector<int>> playerRightSprites{ {192,0,24,24},{216,0,24,24 },{240,0,24,24},{264,0,24,24} };
+		std::vector<std::vector<int>> playerUpSprites{ {288,0,24,24},{312,0,24,24 },{336,0,24,24},{360,0,24,24} };
+		std::vector<std::vector<int>> playerGoingDownSprites{ {384,0,24,24},{408,0,24,24 },{432,0,24,24},{456,0,24,24},{480,0,24,24},{504,0,24,24} };
+		std::vector<std::vector<int>> playerGoingLeftSprites{ {528,0,24,24},{552,0,24,24 },{576,0,24,24},{600,0,24,24},{624,0,24,24},{648,0,24,24} };
+		std::vector<std::vector<int>> playerGoingRightSprites{ {672,0,24,24},{696,0,24,24 },{720,0,24,24},{744,0,24,24},{768,0,24,24},{792,0,24,24} };
+		std::vector<std::vector<int>> playerGoingUpSprites{ {816,0,24,24},{840,0,24,24 },{864,0,24,24},{888,0,24,24},{912,0,24,24},{936,0,24,24} };
+		std::vector<std::vector<int>> playerDieSprites{ {960,0,24,24},{984,0,24,24 },{1008,0,24,24},{1032,0,24,24}};
+
+		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, 100, 100);
 
 		std::vector<std::vector<int>> basilSprites{ {5,32,21,31},{37,32,21,31},{69,32,21,31},{101,32,21,31},{133,32,21,31} };
 		SquareCollider* basil = CreateNPC("basil", "Assets/Characters/Basil/Idle/Pink_Head_Idle-Sheet.png", basilSprites, 50,60, 0.3);
 
-		std::vector<std::vector<int>> cowSprites{ {10,139,204,120}, {230,139,204,120} };
-		GameObject* cow1 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 200, 200);
+		std::string Tree = "Assets/Objects/TREE-Sheet.png";
+		std::vector<std::vector<int>> cowSprites{ {0,0,32,32}, {32,0,32,32} };
+		GameObject* cow11 = CreateCow("cow", Tree, cowSprites, 184, 180);
+		GameObject* cow12 = CreateCow("cow", Tree, cowSprites, 216, 180);
+		GameObject* cow13 = CreateCow("cow", Tree, cowSprites, 248, 180);
+		GameObject* cow14 = CreateCow("cow", Tree, cowSprites, 280, 180);
+		GameObject* cow15 = CreateCow("cow", Tree, cowSprites, 312, 180);
+		GameObject* cow16 = CreateCow("cow", Tree, cowSprites, 344, 180);
+		GameObject* cow17 = CreateCow("cow", Tree, cowSprites, 376, 180);
+		GameObject* cow18 = CreateCow("cow", Tree, cowSprites, 408, 180);
+		GameObject* cow19 = CreateCow("cow", Tree, cowSprites, 440, 180);
+		GameObject* cow1 = CreateCow("cow", Tree, cowSprites, 200, 200);
+		GameObject* cow2 = CreateCow("cow", Tree, cowSprites, 232, 200);
+		GameObject* cow3 = CreateCow("cow", Tree, cowSprites, 264, 200);
+		GameObject* cow4 = CreateCow("cow", Tree, cowSprites, 296, 200);
+		GameObject* cow5 = CreateCow("cow", Tree, cowSprites, 328, 200);
+		GameObject* cow6 = CreateCow("cow", Tree, cowSprites, 360, 200);
+		GameObject* cow7 = CreateCow("cow", Tree, cowSprites, 392, 200);
+		GameObject* cow8 = CreateCow("cow", Tree, cowSprites, 424, 200);
+		GameObject* cow9 = CreateCow("cow", Tree, cowSprites, 456, 200);
+		
 
-		GameObject* cow2 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 300, 200);
 
-		GameObject* cow3 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 400, 200);
-
-		GameObject* cow4 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 200, 300);
-
-		GameObject* cow5 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 300, 300);
-
-		GameObject* cow6 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 400, 300);
-
-		GameObject* cow7 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 200, 400);
-
-		GameObject* cow8 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 300, 400);
-
-		GameObject* cow9 = CreateCow("cow", "Assets/Characters/NKC/NKC.png", cowSprites, 400, 400);
-
-		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9 };
+		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19 };
 
 		player->GetComponent<RendererComponent>()->SetCows(cows);
 
@@ -93,7 +103,7 @@ public :
 		GameObject* textbox = CreateTextBox("textbox");
 	}
 
-	GameObject* CreatePlayer(std::string name, std::string texture, std::vector<std::vector<int>> downsprites, std::vector<std::vector<int>> leftsprites, std::vector<std::vector<int>> rightsprites, std::vector<std::vector<int>> upsprites, int positionX, int positionY)
+	GameObject* CreatePlayer(std::string name, std::string texture, std::vector<std::vector<int>> downsprites, std::vector<std::vector<int>> leftsprites, std::vector<std::vector<int>> rightsprites, std::vector<std::vector<int>> upsprites, std::vector<std::vector<int>> goingdownsprites, std::vector<std::vector<int>> goingleftsprites, std::vector<std::vector<int>> goingrightsprites, std::vector<std::vector<int>> goingupsprites, std::vector<std::vector<int>> diesprites, int positionX, int positionY)
 	{
 		GameObject* player = CreateGameObject(name);
 		player->SetPosition(Maths::Vector2f(positionX, positionY));
@@ -116,21 +126,42 @@ public :
 		{
 			rendererComponent->CreateUpSprite(upsprites[i]);
 		}
+		for (int i = 0; i < goingdownsprites.size(); i++)
+		{
+			rendererComponent->CreateGoingDownSprite(goingdownsprites[i]);
+		}
+		for (int i = 0; i < goingleftsprites.size(); i++)
+		{
+			rendererComponent->CreateGoingLeftSprite(goingleftsprites[i]);
+		}
+		for (int i = 0; i < goingrightsprites.size(); i++)
+		{
+			rendererComponent->CreateGoingRightSprite(goingrightsprites[i]);
+		}
+		for (int i = 0; i < goingupsprites.size(); i++)
+		{
+			rendererComponent->CreateGoingUpSprite(goingupsprites[i]);
+		}
+		for (int i = 0; i < diesprites.size(); i++)
+		{
+			rendererComponent->CreateDieSprite(diesprites[i]);
+		}
+
 		rendererComponent->InitSprites();
 		rendererComponent->SetSprite(0);
 		rendererComponent->SetScale(1);
-		rendererComponent->SetOriginX(8);
+		rendererComponent->SetOriginX(12);
 		rendererComponent->SetOriginY(12);
 
 		AnimationComponent* animationComponent = player->CreateComponent<AnimationComponent>();
 		animationComponent->SetRendererComponent(rendererComponent);
-		animationComponent->SetUpdateTimer(0.1);
+		animationComponent->SetUpdateTimer(0.2);
 
 		SquareCollider* squareCollider = player->CreateComponent<SquareCollider>();
 		squareCollider->SetHeight(24);
 		squareCollider->SetWidth(16);
 		squareCollider->SetX(12);
-		squareCollider->SetY(8);
+		squareCollider->SetY(12);
 
 		AuraRenderer* auraRenderer = player->CreateComponent<AuraRenderer>();
 		auraRenderer->SetRendererComponent(rendererComponent);
@@ -204,15 +235,15 @@ public :
 		}
 		rendererComponent->InitSprites();
 		rendererComponent->SetSprite(0);
-		rendererComponent->SetScale(0.5);
-		rendererComponent->SetOriginX(102);
-		rendererComponent->SetOriginY(60);
+		rendererComponent->SetScale(1);
+		rendererComponent->SetOriginX(16);
+		rendererComponent->SetOriginY(16);
 
 		SquareCollider* autumnCollider = cow->CreateComponent<SquareCollider>();
-		autumnCollider->SetWidth(102);
-		autumnCollider->SetHeight(60);
-		autumnCollider->SetX(61);
-		autumnCollider->SetY(30);
+		autumnCollider->SetWidth(32);
+		autumnCollider->SetHeight(32);
+		autumnCollider->SetX(16);
+		autumnCollider->SetY(16);
 
 
 		CowTest* cowTest = cow->CreateComponent<CowTest>();

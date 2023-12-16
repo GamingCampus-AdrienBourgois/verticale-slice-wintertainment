@@ -19,29 +19,49 @@ void PlayerInput::Update(float _delta_time)
 	if (canMove == true)
 	{
 		Maths::Vector2f OriginalPosition = GetOwner()->GetPosition();
+		if (InputModule::GetKeyUp(sf::Keyboard::Z))
+		{
+			rendererComponent->SetCurrentSprites("UpSprites");
+			animationComponent->SetID(0);
+		}
+		else if (InputModule::GetKeyUp(sf::Keyboard::S))
+		{
+			rendererComponent->SetCurrentSprites("DownSprites");
+			animationComponent->SetID(0);
+		}
+		else if (InputModule::GetKeyUp(sf::Keyboard::Q))
+		{
+			rendererComponent->SetCurrentSprites("LeftSprites");
+			animationComponent->SetID(0);
+		}
+		else if (InputModule::GetKeyUp(sf::Keyboard::D))
+		{
+			rendererComponent->SetCurrentSprites("RightSprites");
+			animationComponent->SetID(0);
+		}
 		if (InputModule::GetKey(sf::Keyboard::Z))
 		{
 			GetOwner()->SetPosition(position + Maths::Vector2f::Down * _delta_time * Speed);
 			animationComponent->ResetDirection();
-			rendererComponent->SetCurrentSprites("UpSprites");
+			rendererComponent->SetCurrentSprites("GoingUpSprites");
 		}
 		else if (InputModule::GetKey(sf::Keyboard::S))
 		{
 			GetOwner()->SetPosition(position + Maths::Vector2f::Up * _delta_time * Speed);
 			animationComponent->ResetDirection();
-			rendererComponent->SetCurrentSprites("DownSprites");
+			rendererComponent->SetCurrentSprites("GoingDownSprites");
 		}
 		else if (InputModule::GetKey(sf::Keyboard::Q))
 		{
 			GetOwner()->SetPosition(position + Maths::Vector2f::Left * _delta_time * Speed);
 			animationComponent->ResetDirection();
-			rendererComponent->SetCurrentSprites("LeftSprites");
+			rendererComponent->SetCurrentSprites("GoingLeftSprites");
 		}
 		else if (InputModule::GetKey(sf::Keyboard::D))
 		{
 			GetOwner()->SetPosition(position + Maths::Vector2f::Right * _delta_time * Speed);
 			animationComponent->ResetDirection();
-			rendererComponent->SetCurrentSprites("RightSprites");
+			rendererComponent->SetCurrentSprites("GoingRightSprites");
 		}
 		if (InputModule::GetKeyDown(sf::Keyboard::E))
 		{
@@ -92,7 +112,6 @@ void PlayerInput::Update(float _delta_time)
 				GetOwner()->SetPosition(OriginalPosition);
 			}
 		}
-
 	}
 	if (InputModule::GetKeyDown(sf::Keyboard::T))
 	{
@@ -100,5 +119,10 @@ void PlayerInput::Update(float _delta_time)
 		canMove = !canMove;
 		animationComponent->SwitchPause();
 		
+	}
+	if (InputModule::GetKeyDown(sf::Keyboard::P))
+	{
+		animationComponent->SetID(0);
+		rendererComponent->SetCurrentSprites("DieSprites");
 	}
 }

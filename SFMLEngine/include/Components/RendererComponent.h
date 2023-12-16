@@ -28,6 +28,11 @@ public:
 	void CreateUpSprite(std::vector<int> _spriteData);
 	void CreateLeftSprite(std::vector<int> _spriteData);
 	void CreateRightSprite(std::vector<int> _spriteData);
+	void CreateGoingDownSprite(std::vector<int> _spriteData);
+	void CreateGoingUpSprite(std::vector<int> _spriteData);
+	void CreateGoingLeftSprite(std::vector<int> _spriteData);
+	void CreateGoingRightSprite(std::vector<int> _spriteData);
+	void CreateDieSprite(std::vector<int> _spriteData);
 	void InitSprites();
 
 	void SetScale(float _scale) { scale = _scale; }
@@ -53,6 +58,11 @@ private:
 	std::vector<sf::Sprite*> UpSprites;
 	std::vector<sf::Sprite*> LeftSprites;
 	std::vector<sf::Sprite*> RightSprites;
+	std::vector<sf::Sprite*> GoingDownSprites;
+	std::vector<sf::Sprite*> GoingUpSprites;
+	std::vector<sf::Sprite*> GoingLeftSprites;
+	std::vector<sf::Sprite*> GoingRightSprites;
+	std::vector<sf::Sprite*> DieSprites;
 
 	std::vector<sf::Texture*> Textures;
 };

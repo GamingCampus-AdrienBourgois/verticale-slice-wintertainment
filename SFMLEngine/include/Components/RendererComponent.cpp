@@ -78,6 +78,37 @@ void RendererComponent::CreateRightSprite(std::vector<int> _spriteData)
 	RightSprites.push_back(sprite);
 }
 
+void RendererComponent::CreateGoingDownSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	GoingDownSprites.push_back(sprite);
+}
+void RendererComponent::CreateGoingUpSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	GoingUpSprites.push_back(sprite);
+}
+void RendererComponent::CreateGoingLeftSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	GoingLeftSprites.push_back(sprite);
+}
+void RendererComponent::CreateGoingRightSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	GoingRightSprites.push_back(sprite);
+}
+void RendererComponent::CreateDieSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	DieSprites.push_back(sprite);
+}
+
 void RendererComponent::InitSprites()
 {
 	CurrentSprites = DownSprites;
@@ -85,6 +116,9 @@ void RendererComponent::InitSprites()
 	Animation.emplace("UpSprites", UpSprites);
 	Animation.emplace("LeftSprites", LeftSprites);
 	Animation.emplace("RightSprites", RightSprites);
+	Animation.emplace("GoingDownSprites", GoingDownSprites);
+	Animation.emplace("GoingUpSprites", GoingUpSprites);
+	Animation.emplace("GoingLeftSprites", GoingLeftSprites);
+	Animation.emplace("GoingRightSprites", GoingRightSprites);
+	Animation.emplace("DieSprites", DieSprites);
 }
-
-

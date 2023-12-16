@@ -16,6 +16,7 @@ public:
 
 	void SetRendererComponent(RendererComponent* _rendererComponent) { rendererComponent = _rendererComponent; }
 	void SetUpdateTimer(float _updateTimer) { updateTimer = _updateTimer; }
+	void SetID(int _id) { id = _id; }
 
 
 	void ResetDirection();
