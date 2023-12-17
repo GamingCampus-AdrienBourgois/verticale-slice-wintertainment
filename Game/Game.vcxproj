@@ -337,11 +337,6 @@
       <Project>{fae7003c-61cf-41e6-9b58-70e97d3f7878}</Project>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Scenes\Autumn1.h" />
-    <ClInclude Include="Scenes\DefaultScene.h" />
-    <ClInclude Include="Scenes\MenuScene.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

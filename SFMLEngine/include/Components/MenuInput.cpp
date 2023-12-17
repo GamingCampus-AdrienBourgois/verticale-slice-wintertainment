@@ -2,6 +2,7 @@
 #include "Modules/InputModule.h"
 #include "Engine.h"
 #include "Modules/SceneModule.h"
+#include "Modules/WindowModule.h"
 #include "Scenes/Autumn1.h"
 
 #include <math.h>
@@ -41,9 +42,9 @@ void MenuInput::Update(float _delta_time)
 	// si tu appuie sur Enter il t'enverra en fonction de la ou tu es situé en vert
 	else if (InputModule::GetKeyDown(sf::Keyboard::Enter))
 	{
+		const Engine* engine = Engine::GetInstance();
 		if (SelectedMenu == 0)
 		{
-			const Engine* engine = Engine::GetInstance();
 			SceneModule* scene_module = engine->GetModuleManager()->GetModule<SceneModule>();
 			scene_module->SetScene<Autumn1>();
 		}
@@ -53,7 +54,7 @@ void MenuInput::Update(float _delta_time)
 		}
 		if (SelectedMenu == 2)
 		{
-
+			engine->GetInstance()->Quit();
 		}
 	}
 }
