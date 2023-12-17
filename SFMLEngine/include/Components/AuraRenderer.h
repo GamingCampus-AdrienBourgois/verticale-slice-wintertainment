@@ -32,7 +32,7 @@ private :
 	float Timer = 0;
 	std::vector<Snowflake*> snowflakes;
 	float MaxReserve = 500;
-	float Reserve = 500;
+	float Reserve = 5000;
 
 	bool isActive = false;
 };

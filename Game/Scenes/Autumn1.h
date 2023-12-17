@@ -170,10 +170,10 @@ public :
 		animationComponent->SetUpdateTimer(0.2);
 
 		SquareCollider* squareCollider = player->CreateComponent<SquareCollider>();
-		squareCollider->SetHeight(12);
-		squareCollider->SetWidth(16);
-		squareCollider->SetX(12);
-		squareCollider->SetY(0);
+		squareCollider->SetHeight(6);
+		squareCollider->SetWidth(12);
+		squareCollider->SetX(8);
+		squareCollider->SetY(-6);
 
 		AuraRenderer* auraRenderer = player->CreateComponent<AuraRenderer>();
 		auraRenderer->SetRendererComponent(rendererComponent);
@@ -383,11 +383,13 @@ public :
 				if (netzkollider[i][j] == identifizieren)
 				{
 					GameObject* wasser = CreateGameObject("wasser");
-					wasser->SetPosition(Maths::Vector2f(j*16, i*16));
+					wasser->SetPosition(Maths::Vector2f(j*16, i*16-4));
 
 					SquareCollider* wasserKollider = wasser->CreateComponent<SquareCollider>();
 					wasserKollider->SetWidth(16);
 					wasserKollider->SetHeight(16);
+					wasserKollider->SetX(8);
+					wasserKollider->SetY(8);
 
 					RendererComponent* renderKomponente = wasser->CreateComponent<RendererComponent>();
 					renderKomponente->SetTexture(textur);
