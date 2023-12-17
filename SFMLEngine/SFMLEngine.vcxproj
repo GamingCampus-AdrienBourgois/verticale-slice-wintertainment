@@ -85,6 +85,9 @@
     <ClInclude Include="include\Modules\SceneModule.h" />
     <ClInclude Include="include\Modules\WindowModule.h" />
     <ClInclude Include="include\Modules\InputModule.h" />
+    <ClInclude Include="include\Scenes\Autumn1.h" />
+    <ClInclude Include="include\Scenes\DefaultScene.h" />
+    <ClInclude Include="include\Scenes\MenuScene.h" />
     <ClInclude Include="include\Snowflake.h" />
     <ClInclude Include="include\TextDisplayer.h" />
     <ClInclude Include="TileMap.h" />

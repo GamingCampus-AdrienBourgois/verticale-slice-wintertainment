@@ -331,7 +331,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Scenes\Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SFMLEngine\SFMLEngine.vcxproj">
@@ -341,7 +340,7 @@
   <ItemGroup>
     <ClInclude Include="Scenes\Autumn1.h" />
     <ClInclude Include="Scenes\DefaultScene.h" />
-    <ClInclude Include="Scenes\Menu.h" />
+    <ClInclude Include="Scenes\MenuScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

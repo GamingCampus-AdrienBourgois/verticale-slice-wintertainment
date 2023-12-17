@@ -1,5 +1,9 @@
 #include "MenuInput.h"
 #include "Modules/InputModule.h"
+#include "Engine.h"
+#include "Modules/SceneModule.h"
+#include "Scenes/Autumn1.h"
+
 #include <math.h>
 
 MenuInput::MenuInput()
@@ -39,7 +43,9 @@ void MenuInput::Update(float _delta_time)
 	{
 		if (SelectedMenu == 0)
 		{
-			
+			const Engine* engine = Engine::GetInstance();
+			SceneModule* scene_module = engine->GetModuleManager()->GetModule<SceneModule>();
+			scene_module->SetScene<Autumn1>();
 		}
 		if (SelectedMenu == 1)
 		{
