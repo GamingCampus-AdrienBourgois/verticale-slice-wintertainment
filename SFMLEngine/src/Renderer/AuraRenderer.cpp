@@ -1,5 +1,5 @@
-#include "AuraRenderer.h"
-#include "SquareCollider.h"
+#include "Renderer/AuraRenderer.h"
+#include "Components/SquareCollider.h"
 #include "Snowflake.h"
 
 AuraRenderer::AuraRenderer()

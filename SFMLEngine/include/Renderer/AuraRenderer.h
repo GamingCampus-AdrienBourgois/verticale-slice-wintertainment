@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "Component.h"
-#include "RendererComponent.h"
+#include "Components/RendererComponent.h"
 #include "Snowflake.h"
 
 class AuraRenderer final : public Component

@@ -1,4 +1,4 @@
-#include "SeasonComp.h"
+#include "Components/SeasonComp.h"
 
 void SeasonComp::Update(float _delta_time)
 {

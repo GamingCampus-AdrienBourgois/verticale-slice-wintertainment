@@ -1,6 +1,8 @@
-#include "Components/RectangleShapeRenderer.h"
+#include "Renderer/RectangleShapeRenderer.h"
 
 #include "SFML/Graphics/Shape.hpp"
+#include <imgui-SFML.h>
+#include <Components/ARendererComponent.h>
 
 RectangleShapeRenderer::RectangleShapeRenderer()
 {

@@ -1,9 +1,9 @@
-#include "PlayerInput.h"
-#include "AuraRenderer.h"
+#include "Input/PlayerInput.h"
+#include "Renderer/AuraRenderer.h"
 #include "Modules/InputModule.h"
 #include "TextDisplayer.h"
-#include "SquareCollider.h"
-#include "CowTest.h"
+#include "Components/SquareCollider.h"
+#include "Components/CowTest.h"
 
 PlayerInput::PlayerInput()
 {

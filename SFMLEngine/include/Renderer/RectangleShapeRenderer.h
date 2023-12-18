@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 
-#include "ARendererComponent.h"
+#include "Components/ARendererComponent.h"
 
 class RectangleShapeRenderer : public ARendererComponent
 {

@@ -1,19 +1,19 @@
 #pragma once
 
 #include "Scene.h"
-#include "RendererComponent.h"
-#include "PlayerInput.h"
-#include "SquareCollider.h"
-#include "AuraRenderer.h"
-#include "CircleShapeRenderer.h"
-#include "ViewComponent.h"
-#include "SeasonComp.h"
-#include "CowTest.h"
+#include "Components/RendererComponent.h"
+#include "Input/PlayerInput.h"
+#include "Components/SquareCollider.h"
+#include "Renderer/AuraRenderer.h"
+#include "Renderer/CircleShapeRenderer.h"
+#include "Components/ViewComponent.h"
+#include "Components/SeasonComp.h"
+#include "Components/CowTest.h"
 #include "TextDisplayer.h"
-#include "TextComponent.h"
-#include "AnimationComponent.h"
-#include "AudioComponent.h"
-#include "MapComponent.h"
+#include "Components/TextComponent.h"
+#include "Components/AnimationComponent.h"
+#include "Components/AudioComponent.h"
+#include "Components/MapComponent.h"
 
 class Autumn1 final : public Scene
 {

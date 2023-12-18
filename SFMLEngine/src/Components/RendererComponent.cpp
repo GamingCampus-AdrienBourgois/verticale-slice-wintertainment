@@ -1,4 +1,4 @@
-#include "RendererComponent.h"
+#include "Components/RendererComponent.h"
 
 RendererComponent::RendererComponent()
 {
