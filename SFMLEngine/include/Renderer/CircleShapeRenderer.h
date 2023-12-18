@@ -1,21 +1,22 @@
 #pragma once
 
-#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
 #include "Components/ARendererComponent.h"
 
-class RectangleShapeRenderer : public ARendererComponent
+class CircleShapeRenderer : public Component
 {
 public:
-	RectangleShapeRenderer();
-	~RectangleShapeRenderer() override;
+	CircleShapeRenderer();
+	~CircleShapeRenderer() override;
 
 	void SetColor(const sf::Color& _color) { color = _color; }
-
+	void SetRadius(float _radius) { Radius = _radius; }
 	void Render(sf::RenderWindow* _window) override;
 
 private:
 	sf::Color color = sf::Color::White;
-
-	sf::RectangleShape* shape = nullptr;
+	float Radius=24;
 };
+

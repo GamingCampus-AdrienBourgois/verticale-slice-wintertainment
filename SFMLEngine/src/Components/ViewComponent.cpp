@@ -1,4 +1,4 @@
-#include "ViewComponent.h"
+#include "Components/ViewComponent.h"
 
 ViewComponent::ViewComponent()
 {

@@ -4,8 +4,8 @@
 #include <iostream>
 
 #include "Component.h"
-#include "AnimationComponent.h"
-#include "SquareCollider.h"
+#include "Components/AnimationComponent.h"
+#include "Components/SquareCollider.h"
 
 
 

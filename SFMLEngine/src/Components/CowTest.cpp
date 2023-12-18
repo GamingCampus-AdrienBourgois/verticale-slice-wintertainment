@@ -1,6 +1,6 @@
-#include "CowTest.h"
-#include "RendererComponent.h"
-#include "AuraRenderer.h"
+#include "Components/CowTest.h"
+#include "Components/RendererComponent.h"
+#include "Renderer/AuraRenderer.h"
 
 CowTest::CowTest()
 {
