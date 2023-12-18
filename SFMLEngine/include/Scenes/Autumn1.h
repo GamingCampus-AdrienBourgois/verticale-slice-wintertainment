@@ -373,8 +373,8 @@ public :
 		gameObject->SetPosition(Maths::Vector2f(positionX, positionY));
 
 		SquareCollider* collider = gameObject->CreateComponent<SquareCollider>();
-		collider->SetWidth(8.0f);
-		collider->SetHeight(8.0f);
+		collider->SetWidth(16.0f);
+		collider->SetHeight(16.0f);
 
 		return collider;
 	}
