@@ -43,7 +43,7 @@ void AuraRenderer::Update(float _delta_time)
 			}
 		}
 		Reserve -= _delta_time * 25;
-		if (Reserve < 0)
+		if (Reserve < 0 && MaxReserve!=0)
 		{
 			SwitchActive();
 		}
@@ -84,7 +84,10 @@ void AuraRenderer::Render(sf::RenderWindow* _window)
 			snowflakes[i]->Render(*_window);
 		}
 		_window->draw(Zone);
-		_window->draw(Jauge);
+		if (MaxReserve != 0)
+		{
+			_window->draw(Jauge);
+		}
 	}
 }
 

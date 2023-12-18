@@ -16,6 +16,8 @@ public :
 	void Update(float _delta_time);
 	void Render(sf::RenderWindow* _window) override;
 	void SetRendererComponent(RendererComponent* _rendererComponent) { rendererComponent = _rendererComponent; }
+	void SetReserve(float _reserve) { MaxReserve = _reserve; }
+	void SetRadius(float _radius) { Radius = _radius; }
 
 	bool IsActive() { return isActive; }
 	void Refill();

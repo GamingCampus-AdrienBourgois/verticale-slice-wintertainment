@@ -95,28 +95,26 @@ void PlayerInput::Update(float _delta_time)
 			GetOwner()->GetComponent<AuraRenderer>()->SwitchActive();
 		}
 		SquareCollider* playerCollider = GetOwner()->GetComponent<SquareCollider>();
-
+		
 		canMove = true;
-		if (rendererComponent->GetCurrentSeason() == 1)
-		{
+		
 			for (int i = 0; i < wasser.size(); ++i)
 			{
-				if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
+				if (wasser[i]->GetOwner()->GetComponent<RendererComponent>()->GetCurrentSeason() == 1)
 				{
-					GetOwner()->SetPosition(OriginalPosition);
+					if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
+					{
+						GetOwner()->SetPosition(OriginalPosition);
+					}
+				}
+				else
+				{
+					if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
+					{
+						schmoove = true;
+					}
 				}
 			}
-		}
-		else
-		{
-			for (int i = 0; i < wasser.size(); ++i)
-			{
-				if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
-				{
-					schmoove = true;
-				}
-			}
-		}
 		if (schmoove == true)
 		{
 			canMove = false;
@@ -142,7 +140,7 @@ void PlayerInput::Update(float _delta_time)
 		std::vector<GameObject*> cows = rendererComponent->GetCows();
 		for (int i = 0; i < cows.size(); i++)
 		{
-			if (rendererComponent->GetCurrentSeason() == 0)
+			if (cows[i]->GetComponent<RendererComponent>()->GetCurrentSeason() == 0)
 			{
 				SquareCollider* cowCollider = cows[i]->GetComponent<CowTest>()->GetWinterCollider();
 				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
@@ -178,13 +176,33 @@ void PlayerInput::Update(float _delta_time)
 				canMove = true;
 			}
 		}
+		for (int i = 0; i < totems.size(); ++i)
+		{
+			if (SquareCollider::IsColliding(*playerCollider, *totems[i]))
+			{
+				GetOwner()->SetPosition(OriginalPosition);
+				
+				canMove = true;
+				if (InputModule::GetKeyDown(sf::Keyboard::Y))
+				{
+					totems[i]->GetOwner()->GetComponent<AuraRenderer>()->SwitchActive();
+					if (totems[i]->GetOwner()->GetComponent<AuraRenderer>()->IsActive())
+					{
+						totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(1);
+					}
+					else
+					{
+						totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(0);
+					}
+				}
+			}
+		}
 	}
 	if (InputModule::GetKeyDown(sf::Keyboard::T))
 	{
 		GetOwner()->GetSceneOwner()->FindGameObject("textbox")->GetComponent<TextDisplayer>()->Switch();
 		canAct = !canAct;
 		animationComponent->SwitchPause();
-		
 	}
 	if (InputModule::GetKeyDown(sf::Keyboard::P))
 	{

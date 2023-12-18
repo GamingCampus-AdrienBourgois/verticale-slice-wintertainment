@@ -28,6 +28,9 @@ public :
 		std::vector<std::vector<int>> refillSprites{ {480,0,32,32}, {448,0,32,32},{416,0,32,32},{384,0,32,32},{352,0,32,32},{320,0,32,32},{288,0,32,32},{256,0,32,32},{224,0,32,32},{192,0,32,32},{160,0,32,32},{128,0,32,32},{96,0,32,32},{64,0,32,32},{32,0,32,32},{0,0,32,32} };
 		GameObject* refill1 = CreateRefill("refill","Assets/Objects/REFILL-Sheet.png" ,refillSprites,200, 100);
 
+		std::vector<std::vector<int>> totemSprites{ {0,0,32,32},{32,0,32,32} };
+		SquareCollider* totem1 = CreateTotem("totem1", "Assets/Objects/TOTEM-Sheet.png", totemSprites, 300, 150);
+
 		std::vector<std::vector<int>> playerDownSprites{ {0,0,24,24},{24,0,24,24 },{48,0,24,24},{72,0,24,24} };
 		std::vector<std::vector<int>> playerLeftSprites{ {96,0,24,24},{120,0,24,24 },{144,0,24,24},{168,0,24,24} };
 		std::vector<std::vector<int>> playerRightSprites{ {192,0,24,24},{216,0,24,24 },{240,0,24,24},{264,0,24,24} };
@@ -111,6 +114,7 @@ public :
 		player->GetComponent<PlayerInput>()->SetWalls(walls);
 		player->GetComponent<PlayerInput>()->WasserEinstellen(wasser);
 		player->GetComponent<PlayerInput>()->SetNPC(basil);
+		player->GetComponent<PlayerInput>()->SetTotem(totem1);
 
 		GameObject* textbox = CreateTextBox("textbox");
 	}
@@ -177,6 +181,8 @@ public :
 
 		AuraRenderer* auraRenderer = player->CreateComponent<AuraRenderer>();
 		auraRenderer->SetRendererComponent(rendererComponent);
+		auraRenderer->SetReserve(500);
+		auraRenderer->SetRadius(50);
 
 		PlayerInput* playerInput = player->CreateComponent<PlayerInput>();
 		playerInput->SetAnimationComponent(animationComponent);
@@ -412,5 +418,35 @@ public :
 		}
 		return teich;
 	}
+	SquareCollider* CreateTotem(std::string name, std::string texture, std::vector<std::vector<int>> downsprites, int positionX, int positionY)
+	{
+		GameObject* totem = CreateGameObject(name);
+		totem->SetPosition(Maths::Vector2f(positionX, positionY));
 
+		RendererComponent* rendererComponent = totem->CreateComponent<RendererComponent>();
+		rendererComponent->SetTexture(texture);
+		for (int i = 0; i < downsprites.size(); i++)
+		{
+			rendererComponent->CreateDownSprite(downsprites[i]);
+		}
+
+		rendererComponent->InitSprites();
+		rendererComponent->SetSprite(0);
+		rendererComponent->SetScale(0.5);
+		rendererComponent->SetOriginX(16);
+		rendererComponent->SetOriginY(16);
+
+		SquareCollider* squareCollider = totem->CreateComponent<SquareCollider>();
+		squareCollider->SetHeight(16);
+		squareCollider->SetWidth(14);
+		squareCollider->SetX(8);
+		squareCollider->SetY(8);
+
+		AuraRenderer* auraRenderer = totem->CreateComponent<AuraRenderer>();
+		auraRenderer->SetRendererComponent(rendererComponent);
+		auraRenderer->SetReserve(0);
+		auraRenderer->SetRadius(100);
+
+		return squareCollider;;
+	}
 };

@@ -21,6 +21,9 @@ public:
 	void SetWalls(std::vector<SquareCollider*> _walls) { walls = _walls; }
 	void WasserEinstellen(std::vector<SquareCollider*> _wasser) { wasser = _wasser; }
 	void SetNPC(SquareCollider* _npc) { npcs.push_back(_npc); }
+	void SetTotem(SquareCollider* totem) { totems.push_back(totem); }
+
+	void CanAct() { canAct = true; }
 
 private:
 	float Speed = 150.0f;
@@ -38,4 +41,5 @@ private:
 	std::vector<SquareCollider*> walls;
 	std::vector<SquareCollider*> wasser;
 	std::vector<SquareCollider*> npcs;
+	std::vector<SquareCollider*> totems;
 };

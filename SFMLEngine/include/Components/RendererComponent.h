@@ -24,6 +24,8 @@ public:
 	void SetCurrentSeason(int id) { currentSeason = id; }
 	int GetCurrentSeason() { return currentSeason; }
 
+	std::vector<GameObject*> GetTotems() { return totems; }
+
 	void CreateDownSprite(std::vector<int> _spriteData);
 	void CreateUpSprite(std::vector<int> _spriteData);
 	void CreateLeftSprite(std::vector<int> _spriteData);
@@ -65,4 +67,6 @@ private:
 	std::vector<sf::Sprite*> DieSprites;
 
 	std::vector<sf::Texture*> Textures;
+
+	std::vector<GameObject*> totems;
 };
