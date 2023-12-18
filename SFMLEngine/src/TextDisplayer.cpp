@@ -1,5 +1,5 @@
 #include "TextDisplayer.h"
-#include "Components/PlayerInput.h"
+#include "Input/PlayerInput.h"
 
 TextDisplayer::TextDisplayer()
 {

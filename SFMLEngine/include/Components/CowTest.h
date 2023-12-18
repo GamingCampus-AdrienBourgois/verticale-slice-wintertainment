@@ -1,8 +1,8 @@
 #pragma once
 
-#include "SeasonComp.h"
-#include "SquareCollider.h"
-#include "AuraRenderer.h"
+#include "Components/SeasonComp.h"
+#include "Components/SquareCollider.h"
+#include "Renderer/AuraRenderer.h"
 
 class CowTest : public SeasonComp
 {
