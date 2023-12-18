@@ -90,6 +90,7 @@
     <ClInclude Include="include\Scenes\MenuScene.h" />
     <ClInclude Include="include\Snowflake.h" />
     <ClInclude Include="include\TextDisplayer.h" />
+    <ClInclude Include="OptionScene.h" />
     <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <ItemGroup>
