@@ -98,23 +98,68 @@ void PlayerInput::Update(float _delta_time)
 		
 		canMove = true;
 		
-			for (int i = 0; i < wasser.size(); ++i)
+		isInWall = false;
+
+		for (int i = 0; i < wasser.size(); ++i)
+		{
+			if (wasser[i]->GetOwner()->GetComponent<RendererComponent>()->GetCurrentSeason() == 1)
 			{
-				if (wasser[i]->GetOwner()->GetComponent<RendererComponent>()->GetCurrentSeason() == 1)
+				if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
 				{
-					if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
+					if (wasInWall)
 					{
-						GetOwner()->SetPosition(OriginalPosition);
+						animationComponent->SetID(0);
+						animationComponent->SetPlayOnce(true);
+						rendererComponent->SetCurrentSprites("DieSprites");
+						canAct = false;
 					}
-				}
-				else
-				{
-					if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
-					{
-						schmoove = true;
-					}
+					isInWall = true;
+					GetOwner()->SetPosition(OriginalPosition);
 				}
 			}
+			else
+			{
+				if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
+				{
+					schmoove = true;
+				}
+			}
+		}
+		for (int i = 0; i < leaves.size(); i++)
+		{
+			if (leaves[i]->GetComponent<RendererComponent>()->GetCurrentSeason() == 0)
+			{
+				SquareCollider* cowCollider = leaves[i]->GetComponent<CowTest>()->GetWinterCollider();
+				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
+				{
+					isInWall = true;
+					if (wasInWall)
+					{
+						animationComponent->SetID(0);
+						animationComponent->SetPlayOnce(true);
+						rendererComponent->SetCurrentSprites("DieSprites");
+						canAct = false;
+					}
+					GetOwner()->SetPosition(OriginalPosition);
+					canMove = true;
+				}
+			}
+			else
+			{
+				SquareCollider* cowCollider = leaves[i]->GetComponent<CowTest>()->GetAutumnCollider();
+				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
+				{
+					GetOwner()->SetPosition(OriginalPosition);
+					canMove = true;
+				}
+			}
+		}
+
+		if (isInWall)
+		{
+			wasInWall = true;
+		}
+
 		if (schmoove == true)
 		{
 			canMove = false;
@@ -135,6 +180,7 @@ void PlayerInput::Update(float _delta_time)
 				GetOwner()->SetPosition(position + Maths::Vector2f::Right * _delta_time * Speed);
 			}
 			schmoove = false;
+
 		}
 
 		std::vector<GameObject*> cows = rendererComponent->GetCows();

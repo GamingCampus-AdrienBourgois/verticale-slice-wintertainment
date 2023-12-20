@@ -22,6 +22,8 @@ public:
 	void WasserEinstellen(std::vector<SquareCollider*> _wasser) { wasser = _wasser; }
 	void SetNPC(SquareCollider* _npc) { npcs.push_back(_npc); }
 	void SetTotem(SquareCollider* totem) { totems.push_back(totem); }
+	void SetLeaves(std::vector<GameObject*> _leaves) { leaves = _leaves; }
+
 
 	void CanAct() { canAct = true; }
 
@@ -30,6 +32,8 @@ private:
 	bool canAct = true;
 	bool canMove = true;
 
+	bool isInWall = false;
+	bool wasInWall = false;
 	bool schmoove = false;
 	bool lookingDown = true;
 	bool lookingUp = false;
@@ -40,6 +44,7 @@ private:
 	RendererComponent* rendererComponent = nullptr;
 	std::vector<SquareCollider*> walls;
 	std::vector<SquareCollider*> wasser;
+	std::vector<GameObject*> leaves;
 	std::vector<SquareCollider*> npcs;
 	std::vector<SquareCollider*> totems;
 };

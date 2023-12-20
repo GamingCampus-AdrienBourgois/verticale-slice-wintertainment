@@ -108,13 +108,15 @@ public :
 		
 		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, 100, 100);
 
-		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19, leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves9 };
+		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19 };
+		std::vector<GameObject*> leaves = { leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves9 };
 
 		player->GetComponent<RendererComponent>()->SetCows(cows);
 		player->GetComponent<PlayerInput>()->SetWalls(walls);
 		player->GetComponent<PlayerInput>()->WasserEinstellen(wasser);
 		player->GetComponent<PlayerInput>()->SetNPC(basil);
 		player->GetComponent<PlayerInput>()->SetTotem(totem1);
+		player->GetComponent<PlayerInput>()->SetLeaves(leaves);
 
 		GameObject* textbox = CreateTextBox("textbox");
 	}
