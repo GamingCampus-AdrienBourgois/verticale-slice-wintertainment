@@ -82,7 +82,7 @@ public :
 		GameObject* refill2 = CreateRefill("refill2", "Assets/Objects/REFILL-Sheet.png", refillSprites, 224, 202);
 
 		std::vector<std::vector<int>> totemSprites{ {0,0,32,32},{32,0,32,32} };
-		SquareCollider* totem1 = CreateTotem("totem1", "Assets/Objects/TOTEM-Sheet.png", totemSprites, 216, 128);
+		SquareCollider* totem1 = CreateTotem("totem1", "Assets/Objects/TOTEM-Sheet.png", totemSprites, 216, 124);
 		SquareCollider* totem2 = CreateTotem("totem2", "Assets/Objects/TOTEM-Sheet.png", totemSprites, 408, 160);
 
 		SquareCollider* rock1 = CreateRock("rock", Rocks, leavesSprites, 256, 16);
