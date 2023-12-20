@@ -21,12 +21,16 @@ void CowTest::Update(float _delta_time)
 			GetOwner()->GetComponent<RendererComponent>()->SetSprite(0);
 		}
 	GameObject* player = GetOwner()->GetSceneOwner()->FindGameObject("player");
-	GameObject* totem = GetOwner()->GetSceneOwner()->FindGameObject("totem1");
+	GameObject* totem1 = GetOwner()->GetSceneOwner()->FindGameObject("totem1");
+	GameObject* totem2 = GetOwner()->GetSceneOwner()->FindGameObject("totem2");
+
 	std::vector<GameObject*> totemsObjects;
 	std::vector<AuraRenderer*> totems;
 
 	totemsObjects.push_back(player);
-	totemsObjects.push_back(totem);
+	totemsObjects.push_back(totem1);
+	totemsObjects.push_back(totem2);
+
 
 	for (int i = 0; i < totemsObjects.size(); i++)
 	{

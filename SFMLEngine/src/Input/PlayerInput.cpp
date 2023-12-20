@@ -210,6 +210,16 @@ void PlayerInput::Update(float _delta_time)
 				canMove = true;
 			}
 		}
+
+		for (int i = 0; i < rocks.size(); ++i)
+		{
+			if (SquareCollider::IsColliding(*playerCollider, *rocks[i]))
+			{
+				GetOwner()->SetPosition(OriginalPosition);
+				canMove = true;
+			}
+		}
+
 		for (int i = 0; i < totems.size(); ++i)
 		{
 			if (SquareCollider::IsColliding(*playerCollider, *totems[i]))

@@ -12,6 +12,24 @@ AuraRenderer::~AuraRenderer()
 
 void AuraRenderer::Update(float _delta_time)
 {
+	Camera = GetOwner()->GetSceneOwner()->FindGameObject("player")->GetPosition();
+	if (Camera.x < 120)
+	{
+		Camera.x = 120;
+	}
+	else if (Camera.x > 360)
+	{
+		Camera.x = 360;
+	}
+	if (Camera.y < 68)
+	{
+		Camera.y = 68;
+	}
+	else if (Camera.y > 252)
+	{
+		Camera.y = 252;
+	}
+
 	if (isActive)
 	{
 		Timer += _delta_time;
@@ -42,17 +60,21 @@ void AuraRenderer::Update(float _delta_time)
 				snowflakes.erase(snowflakes.begin()+i);
 			}
 		}
-		Reserve -= _delta_time * 25;
+		Reserve -= _delta_time * 250;
 		if (Reserve < 0 && MaxReserve!=0)
 		{
 			SwitchActive();
 		}
 	}
-	GameObject* refill = GetOwner()->GetSceneOwner()->FindGameObject("refill");
-	SquareCollider* refillCollider = refill->GetComponent<SquareCollider>();
+	GameObject* refill1 = GetOwner()->GetSceneOwner()->FindGameObject("refill1");
+	GameObject* refill2 = GetOwner()->GetSceneOwner()->FindGameObject("refill2");
+
+	SquareCollider* refillCollider1 = refill1->GetComponent<SquareCollider>();
+	SquareCollider* refillCollider2 = refill2->GetComponent<SquareCollider>();
+
 	SquareCollider* playerCollider = GetOwner()->GetComponent<SquareCollider>();
 
-	if (SquareCollider::IsColliding(*refillCollider, *playerCollider))
+	if (SquareCollider::IsColliding(*refillCollider1, *playerCollider)|| SquareCollider::IsColliding(*refillCollider2, *playerCollider))
 	{
 		Reserve = MaxReserve;
 	}
@@ -60,10 +82,9 @@ void AuraRenderer::Update(float _delta_time)
 
 void AuraRenderer::Render(sf::RenderWindow* _window)
 {
+	const auto position = GetOwner()->GetPosition();
 	if (isActive)
 	{
-		const auto position = GetOwner()->GetPosition();
-
 		sf::CircleShape Zone;
 		Zone.setPosition(position.x, position.y);
 		Zone.setRadius(Radius);
@@ -72,22 +93,29 @@ void AuraRenderer::Render(sf::RenderWindow* _window)
 		Zone.setOutlineThickness(2);
 		Zone.setOutlineColor(sf::Color::White);
 
-		sf::RectangleShape Jauge;
-		Jauge.setSize(sf::Vector2f(10*Reserve/100,3));
-		Jauge.setPosition(position.x+12, position.y-12);
-		Jauge.setFillColor(sf::Color::Magenta);
-		Jauge.setOutlineThickness(1);
-		Jauge.setOutlineColor(sf::Color::White);
-
 		for (int i = 0; i < snowflakes.size();i++)
 		{
 			snowflakes[i]->Render(*_window);
 		}
 		_window->draw(Zone);
-		if (MaxReserve != 0)
-		{
-			_window->draw(Jauge);
-		}
+		
+	}
+	sf::RectangleShape JaugeOutline;
+	JaugeOutline.setSize(sf::Vector2f(10 * MaxReserve / 100, 3));
+	JaugeOutline.setPosition(Camera.x + 50, Camera.y - 50);
+	JaugeOutline.setFillColor(sf::Color::Transparent);
+	JaugeOutline.setOutlineThickness(1);
+	JaugeOutline.setOutlineColor(sf::Color::White);
+
+	sf::RectangleShape Jauge;
+	Jauge.setSize(sf::Vector2f(10 * Reserve / 100, 3));
+	Jauge.setPosition(Camera.x + 50, Camera.y - 50);
+	Jauge.setFillColor(sf::Color::Magenta);
+	if (MaxReserve != 0)
+	{
+		_window->draw(Jauge);
+		_window->draw(JaugeOutline);
+
 	}
 }
 

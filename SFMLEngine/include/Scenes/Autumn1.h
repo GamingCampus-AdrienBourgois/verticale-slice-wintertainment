@@ -21,15 +21,13 @@ public :
 
 	Autumn1() : Scene("Autumn1")
 	{
-		GameObject* map = CreateMap("map", 0, 0);
+		GameObject* map = CreateMap("map2", 0, 0);
 
 		//GameObject* WorldGame = CreateAudio("Music", "Assets/Audio/MusicBackground.ogg");
 
-		std::vector<std::vector<int>> refillSprites{ {480,0,32,32}, {448,0,32,32},{416,0,32,32},{384,0,32,32},{352,0,32,32},{320,0,32,32},{288,0,32,32},{256,0,32,32},{224,0,32,32},{192,0,32,32},{160,0,32,32},{128,0,32,32},{96,0,32,32},{64,0,32,32},{32,0,32,32},{0,0,32,32} };
-		GameObject* refill1 = CreateRefill("refill","Assets/Objects/REFILL-Sheet.png" ,refillSprites,200, 100);
+		
 
-		std::vector<std::vector<int>> totemSprites{ {0,0,32,32},{32,0,32,32} };
-		SquareCollider* totem1 = CreateTotem("totem1", "Assets/Objects/TOTEM-Sheet.png", totemSprites, 300, 150);
+		
 
 		std::vector<std::vector<int>> playerDownSprites{ {0,0,24,24},{24,0,24,24 },{48,0,24,24},{72,0,24,24} };
 		std::vector<std::vector<int>> playerLeftSprites{ {96,0,24,24},{120,0,24,24 },{144,0,24,24},{168,0,24,24} };
@@ -44,80 +42,154 @@ public :
 
 		std::vector<std::vector<int>> basilSprites{ {5,32,21,31},{37,32,21,31},{69,32,21,31},{101,32,21,31},{133,32,21,31} };
 		SquareCollider* basil = CreateNPC("basil", "Assets/Characters/Basil/Idle/Pink_Head_Idle-Sheet.png", basilSprites, 50,60, 0.3);
-
+		
 		std::string Tree = "Assets/Objects/TREE-Sheet.png";
 		std::string Leaves = "Assets/Objects/Leaf-Sheet.png";
+		std::string Rocks = "Assets/Objects/ROCK-Sheet.png";
 		std::vector<std::vector<int>> cowSprites{ {0,0,32,32}, {32,0,32,32} };
-
 		std::vector<std::vector<int>> leavesSprites{ {0,0,16,16}, {16,0,16,16} };
-		GameObject* cow11 = CreateCow("cow", Tree, cowSprites, 184, 180);
-		GameObject* cow12 = CreateCow("cow", Tree, cowSprites, 216, 180);
-		GameObject* cow13 = CreateCow("cow", Tree, cowSprites, 248, 180);
-		GameObject* cow14 = CreateCow("cow", Tree, cowSprites, 280, 180);
-		GameObject* cow15 = CreateCow("cow", Tree, cowSprites, 312, 180);
-		GameObject* cow16 = CreateCow("cow", Tree, cowSprites, 344, 180);
-		GameObject* cow17 = CreateCow("cow", Tree, cowSprites, 376, 180);
-		GameObject* cow18 = CreateCow("cow", Tree, cowSprites, 408, 180);
-		GameObject* cow19 = CreateCow("cow", Tree, cowSprites, 440, 180);
-		GameObject* cow1 = CreateCow("cow", Tree, cowSprites, 200, 200);
-		GameObject* cow2 = CreateCow("cow", Tree, cowSprites, 232, 200);
-		GameObject* cow3 = CreateCow("cow", Tree, cowSprites, 264, 200);
-		GameObject* cow4 = CreateCow("cow", Tree, cowSprites, 296, 200);
-		GameObject* cow5 = CreateCow("cow", Tree, cowSprites, 328, 200);
-		GameObject* cow6 = CreateCow("cow", Tree, cowSprites, 360, 200);
-		GameObject* cow7 = CreateCow("cow", Tree, cowSprites, 392, 200);
-		GameObject* cow8 = CreateCow("cow", Tree, cowSprites, 424, 200);
-		GameObject* cow9 = CreateCow("cow", Tree, cowSprites, 456, 200);
-		GameObject* leaves1 = CreateLeaves("leaves", Leaves, leavesSprites, 64, 160);
-		GameObject* leaves2 = CreateLeaves("leaves", Leaves, leavesSprites, 80, 160);
-		GameObject* leaves3 = CreateLeaves("leaves", Leaves, leavesSprites, 96, 160);
-		GameObject* leaves4 = CreateLeaves("leaves", Leaves, leavesSprites, 64, 176);
-		GameObject* leaves5 = CreateLeaves("leaves", Leaves, leavesSprites, 80, 176);
-		GameObject* leaves6 = CreateLeaves("leaves", Leaves, leavesSprites, 96, 176);
-		GameObject* leaves7 = CreateLeaves("leaves", Leaves, leavesSprites, 64, 192);
-		GameObject* leaves8 = CreateLeaves("leaves", Leaves, leavesSprites, 80, 192);
-		GameObject* leaves9 = CreateLeaves("leaves", Leaves, leavesSprites, 96, 192);
-		
+
+		std::vector<std::vector<int>> gridcollider = { 
+			{88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 0, 0, 0, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 88},
+			{88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88, 88}
+		};
+
+		std::vector<SquareCollider*> walls = SetWalls(gridcollider, 88);
 		
 
-		std::vector<std::vector<int>> gridcollider = {
-			{142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142 },
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 66, 66, 66, 66, 115, 115, 142},
-			{142, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 115, 142},
-			{142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142, 142} };
+		std::vector<SquareCollider*> wasser = WasserEinstellen(gridcollider, "Assets/Objects/ICE-sheet.png", leavesSprites, 1);
 
-		std::vector<SquareCollider*> walls = SetWalls(gridcollider, 142);
+		std::vector<std::vector<int>> refillSprites{ {480,0,32,32}, {448,0,32,32},{416,0,32,32},{384,0,32,32},{352,0,32,32},{320,0,32,32},{288,0,32,32},{256,0,32,32},{224,0,32,32},{192,0,32,32},{160,0,32,32},{128,0,32,32},{96,0,32,32},{64,0,32,32},{32,0,32,32},{0,0,32,32} };
+		GameObject* refill1 = CreateRefill("refill1", "Assets/Objects/REFILL-Sheet.png", refillSprites, 48, 192);
+		GameObject* refill2 = CreateRefill("refill2", "Assets/Objects/REFILL-Sheet.png", refillSprites, 224, 202);
+
+		std::vector<std::vector<int>> totemSprites{ {0,0,32,32},{32,0,32,32} };
+		SquareCollider* totem1 = CreateTotem("totem1", "Assets/Objects/TOTEM-Sheet.png", totemSprites, 216, 128);
+		SquareCollider* totem2 = CreateTotem("totem2", "Assets/Objects/TOTEM-Sheet.png", totemSprites, 408, 160);
+
+		SquareCollider* rock1 = CreateRock("rock", Rocks, leavesSprites, 256, 16);
+		SquareCollider* rock2 = CreateRock("rock", Rocks, leavesSprites, 256, 32);
+		SquareCollider* rock3 = CreateRock("rock", Rocks, leavesSprites, 256, 48);
+		SquareCollider* rock4 = CreateRock("rock", Rocks, leavesSprites, 256, 64);
+
+		SquareCollider* rock5 = CreateRock("rock", Rocks, leavesSprites, 128, 64);
+		SquareCollider* rock6 = CreateRock("rock", Rocks, leavesSprites, 144, 64);
+		SquareCollider* rock7 = CreateRock("rock", Rocks, leavesSprites, 160, 64);
+		SquareCollider* rock8 = CreateRock("rock", Rocks, leavesSprites, 176, 64);
+		SquareCollider* rock9 = CreateRock("rock", Rocks, leavesSprites, 192, 64);
+		SquareCollider* rock10 = CreateRock("rock", Rocks, leavesSprites, 240, 64);
+
+		SquareCollider* rock11 = CreateRock("rock", Rocks, leavesSprites, 112, 112);
+		SquareCollider* rock12 = CreateRock("rock", Rocks, leavesSprites, 112, 128);
+		SquareCollider* rock13 = CreateRock("rock", Rocks, leavesSprites, 112, 144);
+
+
+		SquareCollider* rock21 = CreateRock("rock", Rocks, leavesSprites, 136, 224);
+		SquareCollider* rock22 = CreateRock("rock", Rocks, leavesSprites, 152, 224);
+		SquareCollider* rock23 = CreateRock("rock", Rocks, leavesSprites, 168, 224);
+		SquareCollider* rock24 = CreateRock("rock", Rocks, leavesSprites, 184, 224);
+		SquareCollider* rock25 = CreateRock("rock", Rocks, leavesSprites, 200, 224);
+		SquareCollider* rock26 = CreateRock("rock", Rocks, leavesSprites, 216, 224);
+		SquareCollider* rock27 = CreateRock("rock", Rocks, leavesSprites, 232, 224);
+		SquareCollider* rock28 = CreateRock("rock", Rocks, leavesSprites, 248, 224);
+		SquareCollider* rock29 = CreateRock("rock", Rocks, leavesSprites, 264, 224);
+		SquareCollider* rock30 = CreateRock("rock", Rocks, leavesSprites, 280, 224);
+		SquareCollider* rock31 = CreateRock("rock", Rocks, leavesSprites, 296, 224);
+		SquareCollider* rock32 = CreateRock("rock", Rocks, leavesSprites, 120, 224);
+		SquareCollider* rock33 = CreateRock("rock", Rocks, leavesSprites, 200, 208);
+		SquareCollider* rock34 = CreateRock("rock", Rocks, leavesSprites, 200, 192);
+
+
+
+		GameObject* cow11 = CreateCow("cow", Tree, cowSprites, 120, 248);
+		GameObject* cow12 = CreateCow("cow", Tree, cowSprites, 152, 248);
+		GameObject* cow13 = CreateCow("cow", Tree, cowSprites, 184, 248);
+		GameObject* cow14 = CreateCow("cow", Tree, cowSprites, 216, 248);
+		GameObject* cow15 = CreateCow("cow", Tree, cowSprites, 248, 248);
+		GameObject* cow16 = CreateCow("cow", Tree, cowSprites, 280, 248);
+		GameObject* cow17 = CreateCow("cow", Tree, cowSprites, 312, 248);
+		GameObject* cow18 = CreateCow("cow", Tree, cowSprites, 344, 248);
+		GameObject* cow19 = CreateCow("cow", Tree, cowSprites, 376, 248);
+
+		GameObject* cow1 = CreateCow("cow", Tree, cowSprites, 136, 268);
+		GameObject* cow2 = CreateCow("cow", Tree, cowSprites, 168, 268);
+		GameObject* cow3 = CreateCow("cow", Tree, cowSprites, 200, 268);
+		GameObject* cow4 = CreateCow("cow", Tree, cowSprites, 232, 268);
+		GameObject* cow5 = CreateCow("cow", Tree, cowSprites, 264, 268);
+		GameObject* cow6 = CreateCow("cow", Tree, cowSprites, 296, 268);
+		GameObject* cow7 = CreateCow("cow", Tree, cowSprites, 328, 268);
+		GameObject* cow8 = CreateCow("cow", Tree, cowSprites, 360, 268);
+		GameObject* cow9 = CreateCow("cow", Tree, cowSprites, 392, 268);
+		
+		GameObject* cow31 = CreateCow("cow", Tree, cowSprites, 120, 288);
+		GameObject* cow32 = CreateCow("cow", Tree, cowSprites, 152, 288);
+		GameObject* cow33 = CreateCow("cow", Tree, cowSprites, 184, 288);
+		GameObject* cow34 = CreateCow("cow", Tree, cowSprites, 216, 288);
+		GameObject* cow35 = CreateCow("cow", Tree, cowSprites, 248, 288);
+		GameObject* cow36 = CreateCow("cow", Tree, cowSprites, 280, 288);
+		GameObject* cow37 = CreateCow("cow", Tree, cowSprites, 312, 288);
+		GameObject* cow38 = CreateCow("cow", Tree, cowSprites, 344, 288);
+		GameObject* cow39 = CreateCow("cow", Tree, cowSprites, 376, 288);
 		
 
-		std::vector<SquareCollider*> wasser = WasserEinstellen(gridcollider, "Assets/Objects/ICE-sheet.png", leavesSprites, 66);
+		GameObject* leaves1 = CreateLeaves("leaves", Leaves, leavesSprites, 128, 28);
+		GameObject* leaves2 = CreateLeaves("leaves", Leaves, leavesSprites, 144, 28);
+		GameObject* leaves3 = CreateLeaves("leaves", Leaves, leavesSprites, 160, 28);
+		GameObject* leaves4 = CreateLeaves("leaves", Leaves, leavesSprites, 176, 28);
+		GameObject* leaves5 = CreateLeaves("leaves", Leaves, leavesSprites, 128, 44);
+		GameObject* leaves6 = CreateLeaves("leaves", Leaves, leavesSprites, 144, 44);
+		GameObject* leaves7 = CreateLeaves("leaves", Leaves, leavesSprites, 160, 44);
+		GameObject* leaves8 = CreateLeaves("leaves", Leaves, leavesSprites, 176, 44);
+
+		GameObject* leaves10 = CreateLeaves("leaves", Leaves, leavesSprites, 320, 96);
+		GameObject* leaves11 = CreateLeaves("leaves", Leaves, leavesSprites, 336, 96);
+		GameObject* leaves12 = CreateLeaves("leaves", Leaves, leavesSprites, 336, 112);
+		GameObject* leaves13 = CreateLeaves("leaves", Leaves, leavesSprites, 336, 128);
+		GameObject* leaves14 = CreateLeaves("leaves", Leaves, leavesSprites, 320, 128);
+		GameObject* leaves15 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 96);
+		GameObject* leaves16 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 128);
+
+		GameObject* leaves20 = CreateLeaves("leaves", Leaves, leavesSprites, 272, 28);
+		GameObject* leaves21 = CreateLeaves("leaves", Leaves, leavesSprites, 288, 28);
+		GameObject* leaves22 = CreateLeaves("leaves", Leaves, leavesSprites, 272, 44);
+		GameObject* leaves23 = CreateLeaves("leaves", Leaves, leavesSprites, 288, 44);
+		GameObject* leaves24 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 28);
+		GameObject* leaves25 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 44);
 		
-		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, playerFallSprites, 100, 100);
+		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, playerFallSprites, 16, 144);
 
-		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19 };
-		std::vector<GameObject*> leaves = { leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves9 };
+		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19,cow31,cow32,cow33,cow34,cow35,cow36,cow37,cow38,cow39 };
+		std::vector<GameObject*> leaves = { leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves10,leaves11,leaves12,leaves13,leaves14,leaves15,leaves16,leaves20,leaves21,leaves22,leaves23,leaves24,leaves25 };
+		std::vector<SquareCollider*> rocks = {rock1,rock2,rock3,rock4,rock5,rock6,rock7,rock8,rock9,rock10,rock11,rock12,rock13,rock21,rock22,rock23,rock24,rock25,rock26,rock27,rock28,rock29,rock30,rock31,rock32,rock33,rock34};
 
+		PlayerInput* playerInput = player->GetComponent<PlayerInput>();
 		player->GetComponent<RendererComponent>()->SetCows(cows);
-		player->GetComponent<PlayerInput>()->SetWalls(walls);
-		player->GetComponent<PlayerInput>()->WasserEinstellen(wasser);
-		player->GetComponent<PlayerInput>()->SetNPC(basil);
-		player->GetComponent<PlayerInput>()->SetTotem(totem1);
-		player->GetComponent<PlayerInput>()->SetLeaves(leaves);
+		playerInput->SetWalls(walls);
+		playerInput->WasserEinstellen(wasser);
+		playerInput->SetNPC(basil);
+		playerInput->SetTotem(totem1);
+		playerInput->SetTotem(totem2);
+		playerInput->SetLeaves(leaves);
+		playerInput->SetRocks(rocks);
+
 
 		GameObject* textbox = CreateTextBox("textbox");
 	}
@@ -294,6 +366,34 @@ public :
 		return cow;
 	}
 
+	SquareCollider* CreateRock(std::string name, std::string texture, std::vector<std::vector<int>> sprites, int positionX, int positionY)
+	{
+		GameObject* rock = CreateGameObject(name);
+		rock->SetPosition(Maths::Vector2f(positionX, positionY));
+
+		RendererComponent* rendererComponent = rock->CreateComponent<RendererComponent>();
+		rendererComponent->SetTexture(texture);
+		for (int i = 0; i < sprites.size(); i++)
+		{
+			rendererComponent->CreateDownSprite(sprites[i]);
+		}
+		rendererComponent->InitSprites();
+		rendererComponent->SetSprite(0);
+		rendererComponent->SetScale(1);
+		rendererComponent->SetOriginX(8);
+		rendererComponent->SetOriginY(8);
+
+		SquareCollider* Collider = rock->CreateComponent<SquareCollider>();
+		Collider->SetWidth(16);
+		Collider->SetHeight(16);
+		Collider->SetX(8);
+		Collider->SetY(8);
+
+		CowTest* cowTest = rock->CreateComponent<CowTest>();
+
+		return Collider;
+	}
+
 	GameObject* CreateLeaves(std::string name, std::string texture, std::vector<std::vector<int>> sprites, int positionX, int positionY)
 	{
 		GameObject* leaves = CreateGameObject(name);
@@ -452,7 +552,7 @@ public :
 		AuraRenderer* auraRenderer = totem->CreateComponent<AuraRenderer>();
 		auraRenderer->SetRendererComponent(rendererComponent);
 		auraRenderer->SetReserve(0);
-		auraRenderer->SetRadius(100);
+		auraRenderer->SetRadius(150);
 
 		return squareCollider;;
 	}

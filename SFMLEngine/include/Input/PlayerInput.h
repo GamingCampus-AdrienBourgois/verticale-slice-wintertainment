@@ -23,6 +23,7 @@ public:
 	void SetNPC(SquareCollider* _npc) { npcs.push_back(_npc); }
 	void SetTotem(SquareCollider* totem) { totems.push_back(totem); }
 	void SetLeaves(std::vector<GameObject*> _leaves) { leaves = _leaves; }
+	void SetRocks(std::vector<SquareCollider*> _rocks) { rocks = _rocks; }
 
 
 	void CanAct() { canAct = true; }
@@ -47,4 +48,5 @@ private:
 	std::vector<GameObject*> leaves;
 	std::vector<SquareCollider*> npcs;
 	std::vector<SquareCollider*> totems;
+	std::vector<SquareCollider*> rocks;
 };
