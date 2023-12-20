@@ -24,4 +24,5 @@ public:
 	void SetY(const float _y) { y = _y; }
 
 	static bool IsColliding(const SquareCollider& _collider_a, const SquareCollider& _collider_b);
+	static bool IsAlmostColliding(const SquareCollider& _collider_a, const SquareCollider& _collider_b);
 };

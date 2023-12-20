@@ -23,6 +23,9 @@ public :
 	void Refill();
 	float GetRadius() { return Radius; }
 
+	void Activate() { isActive = true;}
+	void Deactivate() { isActive = false; }
+
 	void SwitchActive();
 
 private :

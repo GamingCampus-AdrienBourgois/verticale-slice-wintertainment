@@ -229,14 +229,17 @@ void PlayerInput::Update(float _delta_time)
 				canMove = true;
 				if (InputModule::GetKeyDown(sf::Keyboard::Y))
 				{
-					totems[i]->GetOwner()->GetComponent<AuraRenderer>()->SwitchActive();
 					if (totems[i]->GetOwner()->GetComponent<AuraRenderer>()->IsActive())
 					{
-						totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(1);
+						totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(0);
+						totems[i]->GetOwner()->GetComponent<AuraRenderer>()->Deactivate();
+
 					}
 					else
 					{
-						totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(0);
+						totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(1);
+						totems[i]->GetOwner()->GetComponent<AuraRenderer>()->Activate();
+
 					}
 				}
 			}
