@@ -108,6 +108,12 @@ void RendererComponent::CreateDieSprite(std::vector<int> _spriteData)
 	sprite = CreateSprite(_spriteData);
 	DieSprites.push_back(sprite);
 }
+void RendererComponent::CreateFallSprite(std::vector<int> _spriteData)
+{
+	sf::Sprite* sprite = nullptr;
+	sprite = CreateSprite(_spriteData);
+	FallSprites.push_back(sprite);
+}
 
 void RendererComponent::InitSprites()
 {
@@ -121,4 +127,6 @@ void RendererComponent::InitSprites()
 	Animation.emplace("GoingLeftSprites", GoingLeftSprites);
 	Animation.emplace("GoingRightSprites", GoingRightSprites);
 	Animation.emplace("DieSprites", DieSprites);
+	Animation.emplace("FallSprites", FallSprites);
+
 }

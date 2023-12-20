@@ -40,6 +40,7 @@ public :
 		std::vector<std::vector<int>> playerGoingRightSprites{ {672,0,24,24},{696,0,24,24 },{720,0,24,24},{744,0,24,24},{768,0,24,24},{792,0,24,24} };
 		std::vector<std::vector<int>> playerGoingUpSprites{ {816,0,24,24},{840,0,24,24 },{864,0,24,24},{888,0,24,24},{912,0,24,24},{936,0,24,24} };
 		std::vector<std::vector<int>> playerDieSprites{ {960,0,24,24},{984,0,24,24 },{1008,0,24,24},{1032,0,24,24}};
+		std::vector<std::vector<int>> playerFallSprites{ {1056,0,24,24},{1080,0,24,24 },{1104,0,24,24},{1128,0,24,24},{1152,0,24,24},{1176,0,24,24} };
 
 		std::vector<std::vector<int>> basilSprites{ {5,32,21,31},{37,32,21,31},{69,32,21,31},{101,32,21,31},{133,32,21,31} };
 		SquareCollider* basil = CreateNPC("basil", "Assets/Characters/Basil/Idle/Pink_Head_Idle-Sheet.png", basilSprites, 50,60, 0.3);
@@ -106,7 +107,7 @@ public :
 
 		std::vector<SquareCollider*> wasser = WasserEinstellen(gridcollider, "Assets/Objects/ICE-sheet.png", leavesSprites, 66);
 		
-		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, 100, 100);
+		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, playerFallSprites, 100, 100);
 
 		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9,cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19 };
 		std::vector<GameObject*> leaves = { leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves9 };
@@ -121,7 +122,7 @@ public :
 		GameObject* textbox = CreateTextBox("textbox");
 	}
 
-	GameObject* CreatePlayer(std::string name, std::string texture, std::vector<std::vector<int>> downsprites, std::vector<std::vector<int>> leftsprites, std::vector<std::vector<int>> rightsprites, std::vector<std::vector<int>> upsprites, std::vector<std::vector<int>> goingdownsprites, std::vector<std::vector<int>> goingleftsprites, std::vector<std::vector<int>> goingrightsprites, std::vector<std::vector<int>> goingupsprites, std::vector<std::vector<int>> diesprites, int positionX, int positionY)
+	GameObject* CreatePlayer(std::string name, std::string texture, std::vector<std::vector<int>> downsprites, std::vector<std::vector<int>> leftsprites, std::vector<std::vector<int>> rightsprites, std::vector<std::vector<int>> upsprites, std::vector<std::vector<int>> goingdownsprites, std::vector<std::vector<int>> goingleftsprites, std::vector<std::vector<int>> goingrightsprites, std::vector<std::vector<int>> goingupsprites, std::vector<std::vector<int>> diesprites, std::vector<std::vector<int>> fallsprites, int positionX, int positionY)
 	{
 		GameObject* player = CreateGameObject(name);
 		player->SetPosition(Maths::Vector2f(positionX, positionY));
@@ -163,6 +164,10 @@ public :
 		for (int i = 0; i < diesprites.size(); i++)
 		{
 			rendererComponent->CreateDieSprite(diesprites[i]);
+		}
+		for (int i = 0; i < fallsprites.size(); i++)
+		{
+			rendererComponent->CreateFallSprite(fallsprites[i]);
 		}
 
 		rendererComponent->InitSprites();

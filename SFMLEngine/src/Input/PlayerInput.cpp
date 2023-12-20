@@ -106,15 +106,12 @@ void PlayerInput::Update(float _delta_time)
 			{
 				if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
 				{
-					if (wasInWall)
-					{
-						animationComponent->SetID(0);
-						animationComponent->SetPlayOnce(true);
-						rendererComponent->SetCurrentSprites("DieSprites");
-						canAct = false;
-					}
-					isInWall = true;
-					GetOwner()->SetPosition(OriginalPosition);
+					animationComponent->SetID(0);
+					animationComponent->SetPlayOnce(true);
+					rendererComponent->SetCurrentSprites("FallSprites");
+					canAct = false;
+					GetOwner()->SetPosition(wasser[i]->GetOwner()->GetPosition());
+					break;
 				}
 			}
 			else
@@ -132,16 +129,12 @@ void PlayerInput::Update(float _delta_time)
 				SquareCollider* cowCollider = leaves[i]->GetComponent<CowTest>()->GetWinterCollider();
 				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
 				{
-					isInWall = true;
-					if (wasInWall)
-					{
-						animationComponent->SetID(0);
-						animationComponent->SetPlayOnce(true);
-						rendererComponent->SetCurrentSprites("DieSprites");
-						canAct = false;
-					}
-					GetOwner()->SetPosition(OriginalPosition);
-					canMove = true;
+					animationComponent->SetID(0);
+					animationComponent->SetPlayOnce(true);
+					rendererComponent->SetCurrentSprites("FallSprites");
+					canAct = false;
+					GetOwner()->SetPosition(leaves[i]->GetPosition());
+					break;
 				}
 			}
 			else
@@ -153,11 +146,6 @@ void PlayerInput::Update(float _delta_time)
 					canMove = true;
 				}
 			}
-		}
-
-		if (isInWall)
-		{
-			wasInWall = true;
 		}
 
 		if (schmoove == true)

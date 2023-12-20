@@ -35,6 +35,7 @@ public:
 	void CreateGoingLeftSprite(std::vector<int> _spriteData);
 	void CreateGoingRightSprite(std::vector<int> _spriteData);
 	void CreateDieSprite(std::vector<int> _spriteData);
+	void CreateFallSprite(std::vector<int> _spriteData);
 	void InitSprites();
 
 	void SetScale(float _scale) { scale = _scale; }
@@ -65,6 +66,7 @@ private:
 	std::vector<sf::Sprite*> GoingLeftSprites;
 	std::vector<sf::Sprite*> GoingRightSprites;
 	std::vector<sf::Sprite*> DieSprites;
+	std::vector<sf::Sprite*> FallSprites;
 
 	std::vector<sf::Texture*> Textures;
 
