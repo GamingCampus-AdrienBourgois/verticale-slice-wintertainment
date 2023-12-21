@@ -23,7 +23,7 @@ public :
 	{
 		GameObject* map = CreateMap("map2", 0, 0);
 
-		//GameObject* WorldGame = CreateAudio("Music", "Assets/Audio/MusicBackground.ogg");
+		GameObject* WorldGame = CreateAudio("Music", "Assets/Audio/MusicBackground.ogg");
 
 		std::vector<std::vector<int>> playerDownSprites{ {0,0,24,24},{24,0,24,24 },{48,0,24,24},{72,0,24,24} };
 		std::vector<std::vector<int>> playerLeftSprites{ {96,0,24,24},{120,0,24,24 },{144,0,24,24},{168,0,24,24} };

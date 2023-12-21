@@ -6,18 +6,26 @@
 
 class AudioComponent : public Component {
 public:
-	AudioComponent();
-	~AudioComponent();
+    AudioComponent();
+    ~AudioComponent();
 
-	void Update(float _delta_time);
+    void Update(float _delta_time);
 
-	void SetMusic(std::string _name) { name = _name; }
-	void LoadMusic() { music.openFromFile(name); }
-	void Render(sf::RenderWindow* _window) override {music.play(); }
+    void SetMusic(std::string _name) { name = _name; }
+    void LoadMusic() { music.openFromFile(name); }
+    void Render(sf::RenderWindow* _window) override
+    {
+        if (!isPlaying)
+        {
+            music.play();
+            isPlaying = true;
+        }
+    }
 
 
 private:
-	sf::Music music;
-	std::string name;
+    sf::Music music;
+    std::string name;
+    bool isPlaying = false;
 
 };
