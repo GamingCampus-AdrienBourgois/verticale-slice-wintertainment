@@ -204,7 +204,7 @@ void PlayerInput::Update(float _delta_time)
 				GetOwner()->SetPosition(OriginalPosition);
 				
 				canMove = true;
-				if (InputModule::GetKeyDown(sf::Keyboard::Y))
+				if (InputModule::GetKeyDown(sf::Keyboard::A))
 				{
 					if (totems[i]->GetOwner()->GetComponent<AuraRenderer>()->IsActive())
 					{

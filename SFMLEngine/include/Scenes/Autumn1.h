@@ -165,11 +165,8 @@ public :
 		GameObject* leaves7 = CreateLeaves("leaves", Leaves, leavesSprites, 160, 44);
 		GameObject* leaves8 = CreateLeaves("leaves", Leaves, leavesSprites, 176, 44);
 
-		GameObject* leaves10 = CreateLeaves("leaves", Leaves, leavesSprites, 320, 92);
-		GameObject* leaves11 = CreateLeaves("leaves", Leaves, leavesSprites, 336, 92);
-		GameObject* leaves12 = CreateLeaves("leaves", Leaves, leavesSprites, 336, 108);
-		GameObject* leaves13 = CreateLeaves("leaves", Leaves, leavesSprites, 336, 124);
-		GameObject* leaves14 = CreateLeaves("leaves", Leaves, leavesSprites, 320, 124);
+		GameObject* leaves14 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 140);
+		GameObject* leaves15 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 108);
 		GameObject* leaves16 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 124);
 		GameObject* leaves17 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 60);
 		GameObject* leaves18 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 76);
@@ -189,7 +186,7 @@ public :
 		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, playerFallSprites, 16, 144);
 
 		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9, cow10, cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19, cow20,cow31,cow32,cow33,cow34,cow35,cow36,cow37,cow38,cow39,cow40 };
-		std::vector<GameObject*> leaves = { leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves10,leaves11,leaves12,leaves13,leaves14,leaves16, leaves17, leaves18, leaves19, leaves20,leaves21,leaves22,leaves23,leaves24,leaves25, leaves30, leaves31, leaves32, leaves33 };
+		std::vector<GameObject*> leaves = { leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves14,leaves15,leaves16, leaves17, leaves18, leaves19, leaves20,leaves21,leaves22,leaves23,leaves24,leaves25, leaves30, leaves31, leaves32, leaves33 };
 		std::vector<SquareCollider*> rocks = {rock1,rock2,rock3,rock4,rock5,rock6,rock7,rock8,rock9,rock10,rock11,rock12,rock13,rock14,rock15,rock21,rock22,rock23,rock24,rock25,rock26,rock27,rock28,rock29,rock30,rock31,rock32,rock33,rock34};
 
 		PlayerInput* playerInput = player->GetComponent<PlayerInput>();
