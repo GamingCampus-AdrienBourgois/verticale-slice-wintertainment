@@ -7,6 +7,6 @@ S = Bas <br>
 Q = Gauche <br>
 D = Droite <br>
 
-J = Interagir
-K = Artefact
-R = Restart
+J = Interagir<br>
+K = Artefact<br>
+R = Restart<br>
