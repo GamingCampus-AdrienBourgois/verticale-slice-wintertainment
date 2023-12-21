@@ -100,6 +100,9 @@ public :
 		SquareCollider* rock11 = CreateRock("rock", Rocks, leavesSprites, 112, 112);
 		SquareCollider* rock12 = CreateRock("rock", Rocks, leavesSprites, 112, 128);
 		SquareCollider* rock13 = CreateRock("rock", Rocks, leavesSprites, 112, 144);
+		SquareCollider* rock14 = CreateRock("rock", Rocks, leavesSprites, 112, 160);
+		SquareCollider* rock15 = CreateRock("rock", Rocks, leavesSprites, 112, 176);
+
 
 
 		SquareCollider* rock21 = CreateRock("rock", Rocks, leavesSprites, 136, 224);
@@ -187,10 +190,9 @@ public :
 
 		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9, cow10, cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19, cow20,cow31,cow32,cow33,cow34,cow35,cow36,cow37,cow38,cow39,cow40 };
 		std::vector<GameObject*> leaves = { leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves10,leaves11,leaves12,leaves13,leaves14,leaves16, leaves17, leaves18, leaves19, leaves20,leaves21,leaves22,leaves23,leaves24,leaves25, leaves30, leaves31, leaves32, leaves33 };
-		std::vector<SquareCollider*> rocks = {rock1,rock2,rock3,rock4,rock5,rock6,rock7,rock8,rock9,rock10,rock11,rock12,rock13,rock21,rock22,rock23,rock24,rock25,rock26,rock27,rock28,rock29,rock30,rock31,rock32,rock33,rock34};
+		std::vector<SquareCollider*> rocks = {rock1,rock2,rock3,rock4,rock5,rock6,rock7,rock8,rock9,rock10,rock11,rock12,rock13,rock14,rock15,rock21,rock22,rock23,rock24,rock25,rock26,rock27,rock28,rock29,rock30,rock31,rock32,rock33,rock34};
 
 		PlayerInput* playerInput = player->GetComponent<PlayerInput>();
-		player->GetComponent<RendererComponent>()->SetCows(cows);
 		playerInput->SetWalls(walls);
 		playerInput->WasserEinstellen(wasser);
 		playerInput->SetNPC(basil);
@@ -198,6 +200,7 @@ public :
 		playerInput->SetTotem(totem2);
 		playerInput->SetLeaves(leaves);
 		playerInput->SetRocks(rocks);
+		playerInput->SetCows(cows);
 
 
 		GameObject* textbox = CreateTextBox("textbox");
@@ -275,6 +278,7 @@ public :
 		PlayerInput* playerInput = player->CreateComponent<PlayerInput>();
 		playerInput->SetAnimationComponent(animationComponent);
 		playerInput->SetRendererComponent(rendererComponent);
+		playerInput->SetSquareCollider(squareCollider);
 
 		ViewComponent* viewComponent = player->CreateComponent<ViewComponent>();
 

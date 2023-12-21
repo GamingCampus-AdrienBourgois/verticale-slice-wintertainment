@@ -93,16 +93,14 @@ void PlayerInput::Update(float _delta_time)
 		if (InputModule::GetKeyDown(sf::Keyboard::E))
 		{
 			GetOwner()->GetComponent<AuraRenderer>()->SwitchActive();
-		}
-		SquareCollider* playerCollider = GetOwner()->GetComponent<SquareCollider>();
-		
+		}		
 		canMove = true;
 		
 		isInWall = false;
 
 		for (int i = 0; i < wasser.size(); ++i)
 		{
-			if (wasser[i]->GetOwner()->GetComponent<RendererComponent>()->GetCurrentSeason() == 1)
+			if (wasserRenderer[i]->GetCurrentSeason() == 1)
 			{
 				if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
 				{
@@ -124,26 +122,16 @@ void PlayerInput::Update(float _delta_time)
 		}
 		for (int i = 0; i < leaves.size(); i++)
 		{
-			if (leaves[i]->GetComponent<RendererComponent>()->GetCurrentSeason() == 0)
+			if (leavesRenderer[i]->GetCurrentSeason() == 0)
 			{
-				SquareCollider* cowCollider = leaves[i]->GetComponent<CowTest>()->GetWinterCollider();
-				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
+				if (leaves[i] != nullptr && SquareCollider::IsColliding(*leaves[i], *playerCollider))
 				{
 					animationComponent->SetID(0);
 					animationComponent->SetPlayOnce(true);
 					rendererComponent->SetCurrentSprites("FallSprites");
 					canAct = false;
-					GetOwner()->SetPosition(leaves[i]->GetPosition());
+					GetOwner()->SetPosition(leaves[i]->GetOwner()->GetPosition());
 					break;
-				}
-			}
-			else
-			{
-				SquareCollider* cowCollider = leaves[i]->GetComponent<CowTest>()->GetAutumnCollider();
-				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
-				{
-					GetOwner()->SetPosition(OriginalPosition);
-					canMove = true;
 				}
 			}
 		}
@@ -171,22 +159,11 @@ void PlayerInput::Update(float _delta_time)
 
 		}
 
-		std::vector<GameObject*> cows = rendererComponent->GetCows();
 		for (int i = 0; i < cows.size(); i++)
 		{
-			if (cows[i]->GetComponent<RendererComponent>()->GetCurrentSeason() == 0)
+			if (cowsRenderer[i]->GetCurrentSeason() == 1)
 			{
-				SquareCollider* cowCollider = cows[i]->GetComponent<CowTest>()->GetWinterCollider();
-				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
-				{
-					GetOwner()->SetPosition(OriginalPosition);
-					canMove = true;
-				}
-			}
-			else
-			{
-				SquareCollider* cowCollider = cows[i]->GetComponent<CowTest>()->GetAutumnCollider();
-				if (cowCollider != nullptr && SquareCollider::IsColliding(*cowCollider, *playerCollider))
+				if (cows[i] != nullptr && SquareCollider::IsColliding(*cows[i], *playerCollider))
 				{
 					GetOwner()->SetPosition(OriginalPosition);
 					canMove = true;
