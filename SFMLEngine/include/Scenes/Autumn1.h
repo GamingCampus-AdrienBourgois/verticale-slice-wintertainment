@@ -25,10 +25,6 @@ public :
 
 		//GameObject* WorldGame = CreateAudio("Music", "Assets/Audio/MusicBackground.ogg");
 
-		
-
-		
-
 		std::vector<std::vector<int>> playerDownSprites{ {0,0,24,24},{24,0,24,24 },{48,0,24,24},{72,0,24,24} };
 		std::vector<std::vector<int>> playerLeftSprites{ {96,0,24,24},{120,0,24,24 },{144,0,24,24},{168,0,24,24} };
 		std::vector<std::vector<int>> playerRightSprites{ {192,0,24,24},{216,0,24,24 },{240,0,24,24},{264,0,24,24} };
@@ -85,109 +81,18 @@ public :
 		SquareCollider* totem1 = CreateTotem("totem1", "Assets/Objects/TOTEM-Sheet.png", totemSprites, 216, 124);
 		SquareCollider* totem2 = CreateTotem("totem2", "Assets/Objects/TOTEM-Sheet.png", totemSprites, 408, 160);
 
-		SquareCollider* rock1 = CreateRock("rock", Rocks, leavesSprites, 256, 16);
-		SquareCollider* rock2 = CreateRock("rock", Rocks, leavesSprites, 256, 32);
-		SquareCollider* rock3 = CreateRock("rock", Rocks, leavesSprites, 256, 48);
-		SquareCollider* rock4 = CreateRock("rock", Rocks, leavesSprites, 256, 64);
+		std::vector<std::vector<int>> rocksData = { {256,16},{256,32},{256,48},{256,64},{128,64},{144,64},{160,64},{176,64},{192,64},{240,64},{112,112},{112,128},{112,144},{112,160},{112,176},{136,224},{152,224},{168,224},{184,224},{200,224},{216,224},{232,224},{248,224},{264,224},{280,224},{296,224},{120,224},{200,208},{200,192} };
+		std::vector<SquareCollider*> rocks = CreateRock("rock", Rocks, leavesSprites, rocksData);
 
-		SquareCollider* rock5 = CreateRock("rock", Rocks, leavesSprites, 128, 64);
-		SquareCollider* rock6 = CreateRock("rock", Rocks, leavesSprites, 144, 64);
-		SquareCollider* rock7 = CreateRock("rock", Rocks, leavesSprites, 160, 64);
-		SquareCollider* rock8 = CreateRock("rock", Rocks, leavesSprites, 176, 64);
-		SquareCollider* rock9 = CreateRock("rock", Rocks, leavesSprites, 192, 64);
-		SquareCollider* rock10 = CreateRock("rock", Rocks, leavesSprites, 240, 64);
-
-		SquareCollider* rock11 = CreateRock("rock", Rocks, leavesSprites, 112, 112);
-		SquareCollider* rock12 = CreateRock("rock", Rocks, leavesSprites, 112, 128);
-		SquareCollider* rock13 = CreateRock("rock", Rocks, leavesSprites, 112, 144);
-		SquareCollider* rock14 = CreateRock("rock", Rocks, leavesSprites, 112, 160);
-		SquareCollider* rock15 = CreateRock("rock", Rocks, leavesSprites, 112, 176);
-
-
-
-		SquareCollider* rock21 = CreateRock("rock", Rocks, leavesSprites, 136, 224);
-		SquareCollider* rock22 = CreateRock("rock", Rocks, leavesSprites, 152, 224);
-		SquareCollider* rock23 = CreateRock("rock", Rocks, leavesSprites, 168, 224);
-		SquareCollider* rock24 = CreateRock("rock", Rocks, leavesSprites, 184, 224);
-		SquareCollider* rock25 = CreateRock("rock", Rocks, leavesSprites, 200, 224);
-		SquareCollider* rock26 = CreateRock("rock", Rocks, leavesSprites, 216, 224);
-		SquareCollider* rock27 = CreateRock("rock", Rocks, leavesSprites, 232, 224);
-		SquareCollider* rock28 = CreateRock("rock", Rocks, leavesSprites, 248, 224);
-		SquareCollider* rock29 = CreateRock("rock", Rocks, leavesSprites, 264, 224);
-		SquareCollider* rock30 = CreateRock("rock", Rocks, leavesSprites, 280, 224);
-		SquareCollider* rock31 = CreateRock("rock", Rocks, leavesSprites, 296, 224);
-		SquareCollider* rock32 = CreateRock("rock", Rocks, leavesSprites, 120, 224);
-		SquareCollider* rock33 = CreateRock("rock", Rocks, leavesSprites, 200, 208);
-		SquareCollider* rock34 = CreateRock("rock", Rocks, leavesSprites, 200, 192);
-
-
-
-		GameObject* cow11 = CreateCow("cow", Tree, cowSprites, 120, 248);
-		GameObject* cow12 = CreateCow("cow", Tree, cowSprites, 152, 248);
-		GameObject* cow13 = CreateCow("cow", Tree, cowSprites, 184, 248);
-		GameObject* cow14 = CreateCow("cow", Tree, cowSprites, 216, 248);
-		GameObject* cow15 = CreateCow("cow", Tree, cowSprites, 248, 248);
-		GameObject* cow16 = CreateCow("cow", Tree, cowSprites, 280, 248);
-		GameObject* cow17 = CreateCow("cow", Tree, cowSprites, 312, 248);
-		GameObject* cow18 = CreateCow("cow", Tree, cowSprites, 344, 248);
-		GameObject* cow19 = CreateCow("cow", Tree, cowSprites, 376, 248);
-		GameObject* cow20 = CreateCow("cow", Tree, cowSprites, 88, 248);
-
-		GameObject* cow1 = CreateCow("cow", Tree, cowSprites, 136, 268);
-		GameObject* cow2 = CreateCow("cow", Tree, cowSprites, 168, 268);
-		GameObject* cow3 = CreateCow("cow", Tree, cowSprites, 200, 268);
-		GameObject* cow4 = CreateCow("cow", Tree, cowSprites, 232, 268);
-		GameObject* cow5 = CreateCow("cow", Tree, cowSprites, 264, 268);
-		GameObject* cow6 = CreateCow("cow", Tree, cowSprites, 296, 268);
-		GameObject* cow7 = CreateCow("cow", Tree, cowSprites, 328, 268);
-		GameObject* cow8 = CreateCow("cow", Tree, cowSprites, 360, 268);
-		GameObject* cow9 = CreateCow("cow", Tree, cowSprites, 392, 268);
-		GameObject* cow10 = CreateCow("cow", Tree, cowSprites, 104, 268);
-
-		GameObject* cow31 = CreateCow("cow", Tree, cowSprites, 120, 288);
-		GameObject* cow32 = CreateCow("cow", Tree, cowSprites, 152, 288);
-		GameObject* cow33 = CreateCow("cow", Tree, cowSprites, 184, 288);
-		GameObject* cow34 = CreateCow("cow", Tree, cowSprites, 216, 288);
-		GameObject* cow35 = CreateCow("cow", Tree, cowSprites, 248, 288);
-		GameObject* cow36 = CreateCow("cow", Tree, cowSprites, 280, 288);
-		GameObject* cow37 = CreateCow("cow", Tree, cowSprites, 312, 288);
-		GameObject* cow38 = CreateCow("cow", Tree, cowSprites, 344, 288);
-		GameObject* cow39 = CreateCow("cow", Tree, cowSprites, 376, 288);
-		GameObject* cow40 = CreateCow("cow", Tree, cowSprites, 88, 288);
+		std::vector<std::vector<int>> treeData = { {120,248},{152,248},{184,248},{216,248},{248,248},{280,248},{312,248},{344,248},{376,248},{88,248},{136,268},{168,268},{200,268},{232,268},{264,268},{296,268},{328,268},{360,268},{396,268},{104,268},{88,288},{120,288},{152,288},{184,288},{216,288},{248,288},{280,288},{312,288},{344,288},{376,288} };
+		std::vector<GameObject*> trees = CreateCow("trees", Tree, cowSprites, treeData);
 		
-
-		GameObject* leaves1 = CreateLeaves("leaves", Leaves, leavesSprites, 128, 28);
-		GameObject* leaves2 = CreateLeaves("leaves", Leaves, leavesSprites, 144, 28);
-		GameObject* leaves3 = CreateLeaves("leaves", Leaves, leavesSprites, 160, 28);
-		GameObject* leaves4 = CreateLeaves("leaves", Leaves, leavesSprites, 176, 28);
-		GameObject* leaves5 = CreateLeaves("leaves", Leaves, leavesSprites, 128, 44);
-		GameObject* leaves6 = CreateLeaves("leaves", Leaves, leavesSprites, 144, 44);
-		GameObject* leaves7 = CreateLeaves("leaves", Leaves, leavesSprites, 160, 44);
-		GameObject* leaves8 = CreateLeaves("leaves", Leaves, leavesSprites, 176, 44);
-
-		GameObject* leaves14 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 140);
-		GameObject* leaves15 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 108);
-		GameObject* leaves16 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 124);
-		GameObject* leaves17 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 60);
-		GameObject* leaves18 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 76);
-		GameObject* leaves19 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 92);
-		GameObject* leaves20 = CreateLeaves("leaves", Leaves, leavesSprites, 272, 28);
-		GameObject* leaves21 = CreateLeaves("leaves", Leaves, leavesSprites, 288, 28);
-		GameObject* leaves22 = CreateLeaves("leaves", Leaves, leavesSprites, 272, 44);
-		GameObject* leaves23 = CreateLeaves("leaves", Leaves, leavesSprites, 288, 44);
-		GameObject* leaves24 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 28);
-		GameObject* leaves25 = CreateLeaves("leaves", Leaves, leavesSprites, 304, 44);
-
-		GameObject* leaves30 = CreateLeaves("leaves", Leaves, leavesSprites, 312, 224);
-		GameObject* leaves31  = CreateLeaves("leaves", Leaves, leavesSprites, 328, 224);
-		GameObject* leaves32 = CreateLeaves("leaves", Leaves, leavesSprites, 344, 224);
-		GameObject* leaves33 = CreateLeaves("leaves", Leaves, leavesSprites, 360, 224);
+		std::vector<std::vector<int>> leavesData = { {128,28},{144,28},{160,28},{176,28},{128,44},{144,44},{160,44},{176,44},{304,140},{304,108},{304,124},{304,60},{304,76},{304,92},{272,28},{288,28},{272,44},{288,44},{304,28},{304,44},{312,224},{328,224},{344,224},{360,224} };
+		std::vector<GameObject*> leaves = CreateLeaves("leaves", Leaves, leavesSprites, leavesData);
+		
 		
 		GameObject* player = CreatePlayer("player", "Assets/Characters/Player/Girl-Sheet.png", playerDownSprites, playerLeftSprites, playerRightSprites, playerUpSprites, playerGoingDownSprites, playerGoingLeftSprites, playerGoingRightSprites, playerGoingUpSprites, playerDieSprites, playerFallSprites, 16, 144);
 
-		std::vector<GameObject*> cows = { cow1, cow2, cow3, cow4, cow5, cow6, cow7,cow8,cow9, cow10, cow11,cow12,cow13,cow14,cow15,cow16,cow17,cow18,cow19, cow20,cow31,cow32,cow33,cow34,cow35,cow36,cow37,cow38,cow39,cow40 };
-		std::vector<GameObject*> leaves = { leaves1, leaves2, leaves3, leaves4,leaves5, leaves6,leaves7,leaves8,leaves14,leaves15,leaves16, leaves17, leaves18, leaves19, leaves20,leaves21,leaves22,leaves23,leaves24,leaves25, leaves30, leaves31, leaves32, leaves33 };
-		std::vector<SquareCollider*> rocks = {rock1,rock2,rock3,rock4,rock5,rock6,rock7,rock8,rock9,rock10,rock11,rock12,rock13,rock14,rock15,rock21,rock22,rock23,rock24,rock25,rock26,rock27,rock28,rock29,rock30,rock31,rock32,rock33,rock34};
 
 		PlayerInput* playerInput = player->GetComponent<PlayerInput>();
 		playerInput->SetWalls(walls);
@@ -197,7 +102,7 @@ public :
 		playerInput->SetTotem(totem2);
 		playerInput->SetLeaves(leaves);
 		playerInput->SetRocks(rocks);
-		playerInput->SetCows(cows);
+		playerInput->SetCows(trees);
 
 
 		GameObject* textbox = CreateTextBox("textbox");
@@ -345,94 +250,110 @@ public :
 		return refill;
 	}
 
-	GameObject* CreateCow(std::string name, std::string texture, std::vector<std::vector<int>> sprites, int positionX, int positionY)
+	std::vector<GameObject*> CreateCow(std::string name, std::string texture, std::vector<std::vector<int>> sprites, std::vector<std::vector<int>> position)
 	{
-		GameObject* cow = CreateGameObject(name);
-		cow->SetPosition(Maths::Vector2f(positionX, positionY));
-
-		RendererComponent* rendererComponent = cow->CreateComponent<RendererComponent>();
-		rendererComponent->SetTexture(texture);
-		for (int i = 0; i < sprites.size(); i++)
+		std::vector<GameObject*> Cows;
+		for (int j = 0;j < position.size();j++)
 		{
-			rendererComponent->CreateDownSprite(sprites[i]);
+			GameObject* cow = CreateGameObject(name);
+			cow->SetPosition(Maths::Vector2f(position[j][0], position[j][1]));
+
+			RendererComponent* rendererComponent = cow->CreateComponent<RendererComponent>();
+			rendererComponent->SetTexture(texture);
+			for (int i = 0; i < sprites.size(); i++)
+			{
+				rendererComponent->CreateDownSprite(sprites[i]);
+			}
+			rendererComponent->InitSprites();
+			rendererComponent->SetSprite(0);
+			rendererComponent->SetScale(1);
+			rendererComponent->SetOriginX(16);
+			rendererComponent->SetOriginY(16);
+
+			SquareCollider* autumnCollider = cow->CreateComponent<SquareCollider>();
+			autumnCollider->SetWidth(32);
+			autumnCollider->SetHeight(32);
+			autumnCollider->SetX(16);
+			autumnCollider->SetY(16);
+
+
+			CowTest* cowTest = cow->CreateComponent<CowTest>();
+
+			cowTest->SetAutumnCollider(autumnCollider);
+
+			Cows.push_back(cow);
 		}
-		rendererComponent->InitSprites();
-		rendererComponent->SetSprite(0);
-		rendererComponent->SetScale(1);
-		rendererComponent->SetOriginX(16);
-		rendererComponent->SetOriginY(16);
 
-		SquareCollider* autumnCollider = cow->CreateComponent<SquareCollider>();
-		autumnCollider->SetWidth(32);
-		autumnCollider->SetHeight(32);
-		autumnCollider->SetX(16);
-		autumnCollider->SetY(16);
-
-
-		CowTest* cowTest = cow->CreateComponent<CowTest>();
-
-		cowTest->SetAutumnCollider(autumnCollider);
-
-		return cow;
+		return Cows;
 	}
 
-	SquareCollider* CreateRock(std::string name, std::string texture, std::vector<std::vector<int>> sprites, int positionX, int positionY)
+	std::vector<SquareCollider*> CreateRock(std::string name, std::string texture, std::vector<std::vector<int>> sprites, std::vector<std::vector<int>> position)
 	{
-		GameObject* rock = CreateGameObject(name);
-		rock->SetPosition(Maths::Vector2f(positionX, positionY));
-
-		RendererComponent* rendererComponent = rock->CreateComponent<RendererComponent>();
-		rendererComponent->SetTexture(texture);
-		for (int i = 0; i < sprites.size(); i++)
+		std::vector<SquareCollider*> rocks;
+		for (int j = 0;j < position.size();j++)
 		{
-			rendererComponent->CreateDownSprite(sprites[i]);
+			GameObject* rock = CreateGameObject(name);
+			rock->SetPosition(Maths::Vector2f(position[j][0], position[j][1]));
+
+			RendererComponent* rendererComponent = rock->CreateComponent<RendererComponent>();
+			rendererComponent->SetTexture(texture);
+			for (int i = 0; i < sprites.size(); i++)
+			{
+				rendererComponent->CreateDownSprite(sprites[i]);
+			}
+			rendererComponent->InitSprites();
+			rendererComponent->SetSprite(0);
+			rendererComponent->SetScale(1);
+			rendererComponent->SetOriginX(8);
+			rendererComponent->SetOriginY(8);
+
+			SquareCollider* Collider = rock->CreateComponent<SquareCollider>();
+			Collider->SetWidth(16);
+			Collider->SetHeight(16);
+			Collider->SetX(8);
+			Collider->SetY(8);
+
+			CowTest* cowTest = rock->CreateComponent<CowTest>();
+
+			rocks.push_back(Collider);
 		}
-		rendererComponent->InitSprites();
-		rendererComponent->SetSprite(0);
-		rendererComponent->SetScale(1);
-		rendererComponent->SetOriginX(8);
-		rendererComponent->SetOriginY(8);
-
-		SquareCollider* Collider = rock->CreateComponent<SquareCollider>();
-		Collider->SetWidth(16);
-		Collider->SetHeight(16);
-		Collider->SetX(8);
-		Collider->SetY(8);
-
-		CowTest* cowTest = rock->CreateComponent<CowTest>();
-
-		return Collider;
+		return rocks;
 	}
 
-	GameObject* CreateLeaves(std::string name, std::string texture, std::vector<std::vector<int>> sprites, int positionX, int positionY)
+	std::vector<GameObject*> CreateLeaves(std::string name, std::string texture, std::vector<std::vector<int>> sprites, std::vector<std::vector<int>> position)
 	{
-		GameObject* leaves = CreateGameObject(name);
-		leaves->SetPosition(Maths::Vector2f(positionX, positionY));
-
-		RendererComponent* rendererComponent = leaves->CreateComponent<RendererComponent>();
-		rendererComponent->SetTexture(texture);
-		for (int i = 0; i < sprites.size(); i++)
+		std::vector<GameObject*> Leaves;
+		for (int j = 0;j < position.size();j++)
 		{
-			rendererComponent->CreateDownSprite(sprites[i]);
+			GameObject* leaves = CreateGameObject(name);
+			leaves->SetPosition(Maths::Vector2f(position[j][0], position[j][1]));
+
+			RendererComponent* rendererComponent = leaves->CreateComponent<RendererComponent>();
+			rendererComponent->SetTexture(texture);
+			for (int i = 0; i < sprites.size(); i++)
+			{
+				rendererComponent->CreateDownSprite(sprites[i]);
+			}
+			rendererComponent->InitSprites();
+			rendererComponent->SetSprite(0);
+			rendererComponent->SetScale(1);
+			rendererComponent->SetOriginX(8);
+			rendererComponent->SetOriginY(8);
+
+			SquareCollider* winterCollider = leaves->CreateComponent<SquareCollider>();
+			winterCollider->SetWidth(16);
+			winterCollider->SetHeight(16);
+			winterCollider->SetX(8);
+			winterCollider->SetY(8);
+
+
+			CowTest* cowTest = leaves->CreateComponent<CowTest>();
+
+			cowTest->SetWinterCollider(winterCollider);
+
+			Leaves.push_back(leaves);
 		}
-		rendererComponent->InitSprites();
-		rendererComponent->SetSprite(0);
-		rendererComponent->SetScale(1);
-		rendererComponent->SetOriginX(8);
-		rendererComponent->SetOriginY(8);
-
-		SquareCollider* winterCollider = leaves->CreateComponent<SquareCollider>();
-		winterCollider->SetWidth(16);
-		winterCollider->SetHeight(16);
-		winterCollider->SetX(8);
-		winterCollider->SetY(8);
-
-
-		CowTest* cowTest = leaves->CreateComponent<CowTest>();
-
-		cowTest->SetWinterCollider(winterCollider);
-
-		return leaves;
+		return Leaves;
 	}
 
 	GameObject* CreateTextBox(std::string name)
