@@ -14,7 +14,7 @@ TextDisplayer::TextDisplayer()
 	text.setCharacterSize(size);
 	text.setFont(font);
 	text.setString(" ");
-	name = "J'AIME BEAUCOUP LES BURGERS BIEN GRAS ! ! !";
+	name = "Coucou ! ! !";
 }
 
 TextDisplayer::~TextDisplayer()

@@ -76,7 +76,7 @@ void AuraRenderer::Update(float _delta_time)
 
 	if (SquareCollider::IsColliding(*refillCollider1, *playerCollider)|| SquareCollider::IsColliding(*refillCollider2, *playerCollider))
 	{
-		Reserve = MaxReserve;
+		Refill();
 	}
 }
 
@@ -121,6 +121,7 @@ void AuraRenderer::Render(sf::RenderWindow* _window)
 
 void AuraRenderer::Refill()
 {
+	Reserve = MaxReserve;
 }
 
 void AuraRenderer::SwitchActive()

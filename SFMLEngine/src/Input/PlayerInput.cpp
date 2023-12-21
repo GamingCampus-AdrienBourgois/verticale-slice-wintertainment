@@ -223,12 +223,6 @@ void PlayerInput::Update(float _delta_time)
 				}
 			}
 		}
-		if (InputModule::GetKeyDown(sf::Keyboard::P))
-		{
-			animationComponent->SetID(0);
-			animationComponent->SetPlayOnce(true);
-			rendererComponent->SetCurrentSprites("DieSprites");
-		}
 		if (InputModule::GetKeyDown(sf::Keyboard::R))
 		{
 			GetOwner()->SetPosition(Maths::Vector2f(16, 144));
@@ -241,6 +235,7 @@ void PlayerInput::Update(float _delta_time)
 			rendererComponent->SetCurrentSprites("DownSprites");
 			animationComponent->SetID(0);
 			animationComponent->SetPlayOnce(false);
+			GetOwner()->GetComponent<AuraRenderer>()->Refill();
 		}
 	}
 	else
@@ -262,6 +257,6 @@ void PlayerInput::Die(std::string name, Maths::Vector2f position)
 	animationComponent->SetID(0);
 	animationComponent->SetPlayOnce(true);
 	rendererComponent->SetCurrentSprites(name);
-	canAct = false;
 	GetOwner()->SetPosition(position);
+	canAct = false;
 }
