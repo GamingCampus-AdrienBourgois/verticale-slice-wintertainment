@@ -22,7 +22,9 @@ public:
 	void SetSquareCollider(SquareCollider* _squareCollider) { playerCollider = _squareCollider; }
 
 	void SetWalls(std::vector<SquareCollider*> _walls) { walls = _walls; }
-	
+	void Die(std::string name, Maths::Vector2f position);
+	void DoneReading() { doneReading = true; }
+
 	void WasserEinstellen(std::vector<SquareCollider*> _wasser) { 
 		wasser = _wasser; 		
 		for (int i = 0; i < wasser.size(); ++i)
@@ -60,6 +62,8 @@ private:
 	float Speed = 150.0f;
 	bool canAct = true;
 	bool canMove = true;
+	bool reading = false;
+	bool doneReading = true;
 
 	bool isInWall = false;
 	bool wasInWall = false;

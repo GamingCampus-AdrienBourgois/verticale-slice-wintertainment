@@ -16,222 +16,252 @@ PlayerInput::~PlayerInput()
 void PlayerInput::Update(float _delta_time)
 {
 	Maths::Vector2<float> position = GetOwner()->GetPosition();
-	if (canAct == true)
+	if (reading == false)
 	{
-		Maths::Vector2f OriginalPosition = GetOwner()->GetPosition();
-		if (InputModule::GetKeyUp(sf::Keyboard::Z))
+		if (canAct == true)
 		{
-			rendererComponent->SetCurrentSprites("UpSprites");
-			animationComponent->SetID(0);
-			animationComponent->SetPlayOnce(false);
-		}
-		else if (InputModule::GetKeyUp(sf::Keyboard::S))
-		{
-			rendererComponent->SetCurrentSprites("DownSprites");
-			animationComponent->SetID(0);
-			animationComponent->SetPlayOnce(false);
-		}
-		else if (InputModule::GetKeyUp(sf::Keyboard::Q))
-		{
-			rendererComponent->SetCurrentSprites("LeftSprites");
-			animationComponent->SetID(0);
-			animationComponent->SetPlayOnce(false);
-		}
-		else if (InputModule::GetKeyUp(sf::Keyboard::D))
-		{
-			rendererComponent->SetCurrentSprites("RightSprites");
-			animationComponent->SetID(0);
-			animationComponent->SetPlayOnce(false);
-		}
-		if (canMove == true)
-		{
-			if (InputModule::GetKey(sf::Keyboard::Z))
+			Maths::Vector2f OriginalPosition = GetOwner()->GetPosition();
+			if (InputModule::GetKeyUp(sf::Keyboard::Z))
 			{
-				GetOwner()->SetPosition(position + Maths::Vector2f::Down * _delta_time * Speed);
-				animationComponent->ResetDirection();
-				rendererComponent->SetCurrentSprites("GoingUpSprites");
+				rendererComponent->SetCurrentSprites("UpSprites");
+				animationComponent->SetID(0);
 				animationComponent->SetPlayOnce(false);
-				lookingDown = true;
-				lookingUp = false;
-				lookingLeft = false;
-				lookingRight = false;
 			}
-			else if (InputModule::GetKey(sf::Keyboard::S))
+			else if (InputModule::GetKeyUp(sf::Keyboard::S))
 			{
-				GetOwner()->SetPosition(position + Maths::Vector2f::Up * _delta_time * Speed);
-				animationComponent->ResetDirection();
-				rendererComponent->SetCurrentSprites("GoingDownSprites");
+				rendererComponent->SetCurrentSprites("DownSprites");
+				animationComponent->SetID(0);
 				animationComponent->SetPlayOnce(false);
-				lookingDown = false;
-				lookingUp = true;
-				lookingLeft = false;
-				lookingRight = false;
 			}
-			else if (InputModule::GetKey(sf::Keyboard::Q))
+			else if (InputModule::GetKeyUp(sf::Keyboard::Q))
 			{
-				GetOwner()->SetPosition(position + Maths::Vector2f::Left * _delta_time * Speed);
-				animationComponent->ResetDirection();
-				rendererComponent->SetCurrentSprites("GoingLeftSprites");
+				rendererComponent->SetCurrentSprites("LeftSprites");
+				animationComponent->SetID(0);
 				animationComponent->SetPlayOnce(false);
-				lookingDown = false;
-				lookingUp = false;
-				lookingLeft = true;
-				lookingRight = false;
 			}
-			else if (InputModule::GetKey(sf::Keyboard::D))
+			else if (InputModule::GetKeyUp(sf::Keyboard::D))
 			{
-				GetOwner()->SetPosition(position + Maths::Vector2f::Right * _delta_time * Speed);
-				animationComponent->ResetDirection();
-				rendererComponent->SetCurrentSprites("GoingRightSprites");
+				rendererComponent->SetCurrentSprites("RightSprites");
+				animationComponent->SetID(0);
 				animationComponent->SetPlayOnce(false);
-				lookingDown = false;
-				lookingUp = false;
-				lookingLeft = false;
-				lookingRight = true;
 			}
-		}
-		if (InputModule::GetKeyDown(sf::Keyboard::E))
-		{
-			GetOwner()->GetComponent<AuraRenderer>()->SwitchActive();
-		}		
-		canMove = true;
-		
-		isInWall = false;
-
-		for (int i = 0; i < wasser.size(); ++i)
-		{
-			if (wasserRenderer[i]->GetCurrentSeason() == 1)
+			if (canMove == true)
 			{
-				if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
+				if (InputModule::GetKey(sf::Keyboard::Z))
 				{
-					animationComponent->SetID(0);
-					animationComponent->SetPlayOnce(true);
-					rendererComponent->SetCurrentSprites("FallSprites");
-					canAct = false;
-					GetOwner()->SetPosition(wasser[i]->GetOwner()->GetPosition());
-					break;
+					GetOwner()->SetPosition(position + Maths::Vector2f::Down * _delta_time * Speed);
+					animationComponent->ResetDirection();
+					rendererComponent->SetCurrentSprites("GoingUpSprites");
+					animationComponent->SetPlayOnce(false);
+					lookingDown = true;
+					lookingUp = false;
+					lookingLeft = false;
+					lookingRight = false;
+				}
+				else if (InputModule::GetKey(sf::Keyboard::S))
+				{
+					GetOwner()->SetPosition(position + Maths::Vector2f::Up * _delta_time * Speed);
+					animationComponent->ResetDirection();
+					rendererComponent->SetCurrentSprites("GoingDownSprites");
+					animationComponent->SetPlayOnce(false);
+					lookingDown = false;
+					lookingUp = true;
+					lookingLeft = false;
+					lookingRight = false;
+				}
+				else if (InputModule::GetKey(sf::Keyboard::Q))
+				{
+					GetOwner()->SetPosition(position + Maths::Vector2f::Left * _delta_time * Speed);
+					animationComponent->ResetDirection();
+					rendererComponent->SetCurrentSprites("GoingLeftSprites");
+					animationComponent->SetPlayOnce(false);
+					lookingDown = false;
+					lookingUp = false;
+					lookingLeft = true;
+					lookingRight = false;
+				}
+				else if (InputModule::GetKey(sf::Keyboard::D))
+				{
+					GetOwner()->SetPosition(position + Maths::Vector2f::Right * _delta_time * Speed);
+					animationComponent->ResetDirection();
+					rendererComponent->SetCurrentSprites("GoingRightSprites");
+					animationComponent->SetPlayOnce(false);
+					lookingDown = false;
+					lookingUp = false;
+					lookingLeft = false;
+					lookingRight = true;
 				}
 			}
-			else
+			if (InputModule::GetKeyDown(sf::Keyboard::K))
 			{
-				if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
+				GetOwner()->GetComponent<AuraRenderer>()->SwitchActive();
+			}
+			canMove = true;
+
+			isInWall = false;
+
+			for (int i = 0; i < wasser.size(); ++i)
+			{
+				if (wasserRenderer[i]->GetCurrentSeason() == 1)
 				{
-					schmoove = true;
+					if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
+					{
+						Die("FallSprites", wasser[i]->GetOwner()->GetPosition());
+						break;
+					}
+				}
+				else
+				{
+					if (SquareCollider::IsColliding(*playerCollider, *wasser[i]))
+					{
+						schmoove = true;
+					}
 				}
 			}
-		}
-		for (int i = 0; i < leaves.size(); i++)
-		{
-			if (leavesRenderer[i]->GetCurrentSeason() == 0)
+			for (int i = 0; i < leaves.size(); i++)
 			{
-				if (leaves[i] != nullptr && SquareCollider::IsColliding(*leaves[i], *playerCollider))
+				if (leavesRenderer[i]->GetCurrentSeason() == 0)
 				{
-					animationComponent->SetID(0);
-					animationComponent->SetPlayOnce(true);
-					rendererComponent->SetCurrentSprites("FallSprites");
-					canAct = false;
-					GetOwner()->SetPosition(leaves[i]->GetOwner()->GetPosition());
-					break;
+					if (leaves[i] != nullptr && SquareCollider::IsColliding(*leaves[i], *playerCollider))
+					{
+						Die("FallSprites", leaves[i]->GetOwner()->GetPosition());
+						break;
+					}
 				}
 			}
-		}
 
-		if (schmoove == true)
-		{
-			canMove = false;
-			if (lookingUp == true)
+			if (schmoove == true)
 			{
-				GetOwner()->SetPosition(position + Maths::Vector2f::Up * _delta_time * Speed);
-			}
-			else if (lookingDown == true)
-			{
-				GetOwner()->SetPosition(position + Maths::Vector2f::Down * _delta_time * Speed);
-			}
-			else if (lookingLeft == true)
-			{
-				GetOwner()->SetPosition(position + Maths::Vector2f::Left * _delta_time * Speed);
-			}
-			else if (lookingRight == true)
-			{
-				GetOwner()->SetPosition(position + Maths::Vector2f::Right * _delta_time * Speed);
-			}
-			schmoove = false;
+				canMove = false;
+				if (lookingUp == true)
+				{
+					GetOwner()->SetPosition(position + Maths::Vector2f::Up * _delta_time * Speed);
+				}
+				else if (lookingDown == true)
+				{
+					GetOwner()->SetPosition(position + Maths::Vector2f::Down * _delta_time * Speed);
+				}
+				else if (lookingLeft == true)
+				{
+					GetOwner()->SetPosition(position + Maths::Vector2f::Left * _delta_time * Speed);
+				}
+				else if (lookingRight == true)
+				{
+					GetOwner()->SetPosition(position + Maths::Vector2f::Right * _delta_time * Speed);
+				}
+				schmoove = false;
 
-		}
+			}
 
-		for (int i = 0; i < cows.size(); i++)
-		{
-			if (cowsRenderer[i]->GetCurrentSeason() == 1)
+			for (int i = 0; i < cows.size(); i++)
 			{
-				if (cows[i] != nullptr && SquareCollider::IsColliding(*cows[i], *playerCollider))
+				if (cowsRenderer[i]->GetCurrentSeason() == 1)
+				{
+					if (cows[i] != nullptr && SquareCollider::IsColliding(*cows[i], *playerCollider))
+					{
+						GetOwner()->SetPosition(OriginalPosition);
+						canMove = true;
+					}
+				}
+			}
+			for (int i = 0; i < walls.size(); ++i)
+			{
+				if (SquareCollider::IsColliding(*playerCollider, *walls[i]))
 				{
 					GetOwner()->SetPosition(OriginalPosition);
 					canMove = true;
 				}
 			}
-		}
-		for (int i = 0; i < walls.size(); ++i)
-		{
-			if (SquareCollider::IsColliding(*playerCollider, *walls[i]))
-			{
-				GetOwner()->SetPosition(OriginalPosition);
-				canMove = true;
-			}
-		}
-		
-		for (int i = 0; i < npcs.size(); ++i)
-		{
-			if (SquareCollider::IsColliding(*playerCollider, *npcs[i]))
-			{
-				GetOwner()->SetPosition(OriginalPosition);
-				canMove = true;
-			}
-		}
 
-		for (int i = 0; i < rocks.size(); ++i)
-		{
-			if (SquareCollider::IsColliding(*playerCollider, *rocks[i]))
+			for (int i = 0; i < npcs.size(); ++i)
 			{
-				GetOwner()->SetPosition(OriginalPosition);
-				canMove = true;
-			}
-		}
-
-		for (int i = 0; i < totems.size(); ++i)
-		{
-			if (SquareCollider::IsColliding(*playerCollider, *totems[i]))
-			{
-				GetOwner()->SetPosition(OriginalPosition);
-				
-				canMove = true;
-				if (InputModule::GetKeyDown(sf::Keyboard::A))
+				if (SquareCollider::IsColliding(*playerCollider, *npcs[i]))
 				{
-					if (totems[i]->GetOwner()->GetComponent<AuraRenderer>()->IsActive())
+					GetOwner()->SetPosition(OriginalPosition);
+					canMove = true;
+					if (InputModule::GetKeyDown(sf::Keyboard::J))
 					{
-						totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(0);
-						totems[i]->GetOwner()->GetComponent<AuraRenderer>()->Deactivate();
-
+						GetOwner()->GetSceneOwner()->FindGameObject("textbox")->GetComponent<TextDisplayer>()->Switch();
+						reading = !reading;
+						animationComponent->SwitchPause();
+						doneReading = false;
 					}
-					else
-					{
-						totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(1);
-						totems[i]->GetOwner()->GetComponent<AuraRenderer>()->Activate();
+				}
+			}
 
+			for (int i = 0; i < rocks.size(); ++i)
+			{
+				if (SquareCollider::IsColliding(*playerCollider, *rocks[i]))
+				{
+					GetOwner()->SetPosition(OriginalPosition);
+					canMove = true;
+				}
+			}
+
+			for (int i = 0; i < totems.size(); ++i)
+			{
+				if (SquareCollider::IsColliding(*playerCollider, *totems[i]))
+				{
+					GetOwner()->SetPosition(OriginalPosition);
+
+					canMove = true;
+					if (InputModule::GetKeyDown(sf::Keyboard::J))
+					{
+						if (totems[i]->GetOwner()->GetComponent<AuraRenderer>()->IsActive())
+						{
+							totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(0);
+							totems[i]->GetOwner()->GetComponent<AuraRenderer>()->Deactivate();
+
+						}
+						else
+						{
+							totems[i]->GetOwner()->GetComponent<RendererComponent>()->SetSprite(1);
+							totems[i]->GetOwner()->GetComponent<AuraRenderer>()->Activate();
+
+						}
 					}
 				}
 			}
 		}
+		if (InputModule::GetKeyDown(sf::Keyboard::P))
+		{
+			animationComponent->SetID(0);
+			animationComponent->SetPlayOnce(true);
+			rendererComponent->SetCurrentSprites("DieSprites");
+		}
+		if (InputModule::GetKeyDown(sf::Keyboard::R))
+		{
+			GetOwner()->SetPosition(Maths::Vector2f(16, 144));
+			for (int i = 0; i < totems.size(); ++i)
+			{
+				totems[i]->GetOwner()->GetComponent<AuraRenderer>()->Deactivate();
+			}
+			canAct = true;
+			canMove = true;
+			rendererComponent->SetCurrentSprites("DownSprites");
+			animationComponent->SetID(0);
+			animationComponent->SetPlayOnce(false);
+		}
 	}
-	if (InputModule::GetKeyDown(sf::Keyboard::T))
+	else
 	{
-		GetOwner()->GetSceneOwner()->FindGameObject("textbox")->GetComponent<TextDisplayer>()->Switch();
-		canAct = !canAct;
-		animationComponent->SwitchPause();
+		if (doneReading)
+		{
+			if (InputModule::GetKeyDown(sf::Keyboard::J))
+			{
+				GetOwner()->GetSceneOwner()->FindGameObject("textbox")->GetComponent<TextDisplayer>()->Switch();
+				reading = !reading;
+				animationComponent->SwitchPause();
+			}
+		}
 	}
-	if (InputModule::GetKeyDown(sf::Keyboard::P))
-	{
-		animationComponent->SetID(0);
-		animationComponent->SetPlayOnce(true);
-		rendererComponent->SetCurrentSprites("DieSprites");
-	}
+}
+
+void PlayerInput::Die(std::string name, Maths::Vector2f position)
+{
+	animationComponent->SetID(0);
+	animationComponent->SetPlayOnce(true);
+	rendererComponent->SetCurrentSprites(name);
+	canAct = false;
+	GetOwner()->SetPosition(position);
 }

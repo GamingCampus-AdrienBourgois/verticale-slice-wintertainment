@@ -106,6 +106,7 @@ public :
 
 
 		GameObject* textbox = CreateTextBox("textbox");
+		textbox->GetComponent<TextDisplayer>()->SetPlayer(player);
 	}
 
 	GameObject* CreatePlayer(std::string name, std::string texture, std::vector<std::vector<int>> downsprites, std::vector<std::vector<int>> leftsprites, std::vector<std::vector<int>> rightsprites, std::vector<std::vector<int>> upsprites, std::vector<std::vector<int>> goingdownsprites, std::vector<std::vector<int>> goingleftsprites, std::vector<std::vector<int>> goingrightsprites, std::vector<std::vector<int>> goingupsprites, std::vector<std::vector<int>> diesprites, std::vector<std::vector<int>> fallsprites, int positionX, int positionY)

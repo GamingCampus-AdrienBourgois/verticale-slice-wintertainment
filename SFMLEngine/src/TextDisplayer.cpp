@@ -37,7 +37,7 @@ void TextDisplayer::Update(float _delta_time)
 		timer += _delta_time;
 		if (timer > updatetimer)
 		{
-			Camera = GetOwner()->GetSceneOwner()->FindGameObject("player")->GetPosition();
+			player->GetPosition();
 			if (Camera.x < 120)
 			{
 				Camera.x = 120;
@@ -60,6 +60,7 @@ void TextDisplayer::Update(float _delta_time)
 			{
 				write = false;
 				currentChar = 0;
+				GetOwner()->GetSceneOwner()->FindGameObject("player")->GetComponent<PlayerInput>()->DoneReading();
 			}
 			timer = 0;
 		}

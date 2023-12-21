@@ -21,6 +21,8 @@ public :
 	}
 	void LoadFont();
 
+	void SetPlayer(GameObject* _player) { player = _player; }
+
 	void Update(float _delta_time);
 	void Render(sf::RenderWindow* _window) override;
 
@@ -33,11 +35,12 @@ private :
 	bool write = false;
 	sf::Font font;
 	float timer = 0.0;
-	float updatetimer = 0.025;
+	float updatetimer = 0.00125;
 
 	sf::Text text;
 	int currentChar = 0;
 
+	GameObject* player = nullptr;
 	sf::RectangleShape box;
 	Maths::Vector2<float> Camera;
 };
