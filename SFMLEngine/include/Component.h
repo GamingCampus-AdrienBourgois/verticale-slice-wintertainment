@@ -21,4 +21,4 @@ public:
 
 private:
 	GameObject* owner = nullptr;
-};
+}; 
